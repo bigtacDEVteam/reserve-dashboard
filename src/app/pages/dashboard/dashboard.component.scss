@@ -1,0 +1,8 @@
+/* Define custom styles for the info box */
+.info-box {
+  @apply rounded-lg border-2 p-4 shadow-md;
+  border-color: #4c9aa0;
+}
+.info-box-bg {
+  background-color: #4c9aa0;
+}

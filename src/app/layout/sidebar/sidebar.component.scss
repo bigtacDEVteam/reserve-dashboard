@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #1f2937; /* Tailwind's bg-gray-900 */
+  color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a {
+  @apply flex items-center rounded-lg px-2 py-2 text-sm font-medium hover:bg-gray-700;
+}
+
+.fa-icon {
+  @apply text-lg;
+}

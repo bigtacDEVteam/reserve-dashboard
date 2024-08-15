@@ -1,0 +1,57 @@
+<nav class="flex items-center justify-between bg-gray-800 px-4 py-2 text-white">
+  <!-- Button for sidebar toggle -->
+  <button (click)="toggleSidebarCollapse()" class="focus:outline-none">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </button>
+
+  <!-- Brand Name -->
+  <div class="ml-4 text-lg font-bold">Reserve Admin Dashboard</div>
+
+  <!-- User Info and Dropdown -->
+  <div class="ml-auto flex items-center space-x-4">
+    <!-- Notification Bell -->
+    <div class="relative">
+      <button
+        class="btn-custom position-relative"
+        type="button"
+        id="notificationDropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <fa-icon [icon]="faBell"></fa-icon>
+        <span
+          class="position-absolute start-100 translate-middle bg-danger border-light rounded-circle top-0 border p-1"
+        >
+          <span class="visually-hidden">New alerts</span>
+        </span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-dark"
+        aria-labelledby="notificationDropdown"
+      >
+        <li><a href="#" class="dropdown-item">Notification 1</a></li>
+        <li><a href="#" class="dropdown-item">Notification 2</a></li>
+        <li><a href="#" class="dropdown-item">Notification 3</a></li>
+      </ul>
+    </div>
+
+    <!-- User Dropdown -->
+    <div class="relative">
+      <button
+        class="btn-custom dropdown-toggle"
+        type="button"
+        id="userDropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Super Admin
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-dark"
+        aria-labelledby="userDropdown"
+      >
+        <li><a href="#" class="dropdown-item">Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

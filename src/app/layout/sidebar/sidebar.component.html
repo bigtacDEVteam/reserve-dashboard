@@ -1,0 +1,91 @@
+<div
+  class="flex min-h-full flex-grow flex-col bg-gray-900 text-white transition-all duration-300 ease-in-out"
+  [ngClass]="{ 'w-84': !isCollapsed, 'w-20': isCollapsed }"
+>
+  <!-- Logo Section -->
+  <div class="flex items-center justify-center py-4">
+    <img
+      src="/assets/images/SPark_Logo_wht.png"
+      alt="Logo"
+      class="transition-all duration-300 ease-in-out"
+      [ngClass]="{ 'h-12': !isCollapsed, 'h-8': isCollapsed }"
+    />
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="flex-1 space-y-2 px-2">
+    <a
+      href="#"
+      class="flex items-center rounded-lg px-2 py-2 text-lg hover:bg-custom-hover"
+      routerLink="/dashboard"
+    >
+      <fa-icon
+        [icon]="faGaugeSimpleHigh"
+        size="lg"
+        class="icon-custom mr-3"
+      ></fa-icon>
+      <span
+        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
+        class="text-lg"
+        >Dashboard</span
+      >
+    </a>
+
+    <a
+      href="#"
+      class="flex items-center rounded-lg px-2 py-2 text-sm font-medium hover:bg-custom-hover"
+      routerLink="/live-data"
+    >
+      <fa-icon
+        [icon]="faChartLine"
+        size="lg"
+        class="icon-custom mr-3"
+      ></fa-icon>
+      <span
+        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
+        class="text-lg"
+        >Live Data</span
+      >
+    </a>
+    <a
+      href="#"
+      class="flex items-center rounded-lg px-2 py-2 text-sm font-medium hover:bg-custom-hover"
+      routerLink="/report"
+    >
+      <fa-icon [icon]="faFile" size="lg" class="icon-custom mr-3"></fa-icon>
+      <span
+        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
+        class="text-lg"
+        >Report</span
+      >
+    </a>
+    <a
+      href="#"
+      class="flex items-center rounded-lg px-2 py-2 text-sm font-medium hover:bg-custom-hover"
+      routerLink="/settings"
+    >
+      <fa-icon [icon]="faUser" size="lg" class="icon-custom mr-3"></fa-icon>
+      <span
+        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
+        class="text-lg"
+        >Settings</span
+      >
+    </a>
+    <a
+      href="#"
+      class="flex items-center rounded-lg px-2 py-2 text-sm font-medium hover:bg-custom-hover"
+      routerLink="/help"
+    >
+      <fa-icon
+        [icon]="faCircleQuestion"
+        size="lg"
+        class="icon-custom mr-3"
+      ></fa-icon>
+      <span
+        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
+        class="text-lg"
+        >Help</span
+      >
+    </a>
+  </nav>
+</div>
