@@ -1,13 +1,14 @@
 {
-  "name": "reserve-admin-dashboard",
-  "version": "0.0.0",
+  "name": "reserve-dashboard",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production --base-href=/reserve-dashboard/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:reserve-admin-dashboard": "node dist/reserve-admin-dashboard/server/server.mjs"
+    "serve:ssr:reserve-dashboard": "node dist/reserve-dashboard/server/server.mjs"
   },
   "private": true,
   "dependencies": {

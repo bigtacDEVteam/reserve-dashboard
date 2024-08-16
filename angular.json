@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "reserve-admin-dashboard": {
+    "reserve-dashboard": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/reserve-admin-dashboard",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -87,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "reserve-admin-dashboard:build:production"
+              "buildTarget": "reserve-dashboard:build:production"
             },
             "development": {
-              "buildTarget": "reserve-admin-dashboard:build:development"
+              "buildTarget": "reserve-dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "reserve-admin-dashboard:build"
+            "buildTarget": "reserve-dashboard:build"
           }
         },
         "test": {
