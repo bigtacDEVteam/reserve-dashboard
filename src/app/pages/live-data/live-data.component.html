@@ -1,63 +1,91 @@
-<!-- Operation Table -->
-<div class="col-span-3">
-  <div class="mx-auto max-w-6xl rounded-lg p-2">
-    <h2 class="mb-4 text-xl font-semibold">Barrier Operation Record</h2>
-    <table class="table-lg info-box w-full table-auto border-collapse border">
-      <thead>
-        <tr class="custom-bg">
-          <th class="border border-gray-300 px-4 py-2 text-white">NO.</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">DID</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Action</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Status</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Date</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Time</th>
+<div class="container">
+  <div class="relative overflow-x-auto"></div>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <caption
+      class="flex caption-top items-center justify-between p-3 text-left text-lg font-semibold rtl:text-right"
+    >
+      <span>Live Data Record</span>
+    </caption>
+    <table
+      class="text-md w-full text-left text-gray-500 dark:text-gray-400 rtl:text-right"
+    >
+      <thead
+        class="text-md bg-gray-100text-gray-100 text-customColor dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">Plate No.</th>
+          <th scope="col" class="px-6 py-3">Parking Bay</th>
+          <th scope="col" class="px-6 py-3">Entry</th>
+          <th scope="col" class="px-6 py-3">Exit</th>
+          <th scope="col" class="px-6 py-3">Duration</th>
+          <th scope="col" class="px-6 py-3">Fees</th>
+          <th scope="col" class="px-6 py-3">Status</th>
+          <th scope="col" class="px-6 py-3">Users</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Row 1 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">1</td>
-          <td class="border border-gray-300 px-4 py-2">001</td>
-          <td class="border border-gray-300 px-4 py-2">Close</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
+        <tr
+          class="border-b hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+        >
+          <td
+            class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+          >
+            ABC123
+          </td>
+          <td class="px-6 py-4">B100</td>
+          <td class="px-6 py-4">14:20</td>
+          <td class="px-6 py-4">15:20</td>
+          <td class="px-6 py-4">1 Hour</td>
+          <td class="px-6 py-4">RM 2.00</td>
+          <td class="px-6 py-4">
+            <span
+              class="me-2 rounded border border-green-400 bg-green-300 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-gray-700 dark:text-green-400"
+              >Paid</span
+            >
+          </td>
+          <td class="px-6 py-4">Member</td>
         </tr>
-        <!-- Row 2 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">2</td>
-          <td class="border border-gray-300 px-4 py-2">002</td>
-          <td class="border border-gray-300 px-4 py-2">Close</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
+        <tr
+          class="border-b hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+        >
+          <td
+            class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+          >
+            ABC123
+          </td>
+          <td class="px-6 py-4">B100</td>
+          <td class="px-6 py-4">14:20</td>
+          <td class="px-6 py-4">15:20</td>
+          <td class="px-6 py-4">1 Hour</td>
+          <td class="px-6 py-4">RM 2.00</td>
+          <td class="px-6 py-4">
+            <span
+              class="me-2 rounded border border-green-400 bg-green-300 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-gray-700 dark:text-green-400"
+              >Paid</span
+            >
+          </td>
+          <td class="px-6 py-4">Member</td>
         </tr>
-        <!-- Row 3 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">3</td>
-          <td class="border border-gray-300 px-4 py-2">003</td>
-          <td class="border border-gray-300 px-4 py-2">Open</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-        <!-- Row 4 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">4</td>
-          <td class="border border-gray-300 px-4 py-2">004</td>
-          <td class="border border-gray-300 px-4 py-2">Open</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-        <!-- Row 5 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">5</td>
-          <td class="border border-gray-300 px-4 py-2">005</td>
-          <td class="border border-gray-300 px-4 py-2">Close</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
+        <tr
+          class="border-b hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+        >
+          <td
+            class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+          >
+            ABC123
+          </td>
+          <td class="px-6 py-4">B100</td>
+          <td class="px-6 py-4">14:20</td>
+          <td class="px-6 py-4">15:20</td>
+          <td class="px-6 py-4">1 Hour</td>
+          <td class="px-6 py-4">RM 2.00</td>
+          <td class="px-6 py-4">
+            <span
+              class="me-2 rounded border border-red-400 bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-gray-700 dark:text-red-400"
+              >Unpaid</span
+            >
+          </td>
+          <td class="px-6 py-4">Member</td>
         </tr>
       </tbody>
     </table>

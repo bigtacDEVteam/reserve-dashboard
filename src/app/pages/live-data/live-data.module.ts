@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LiveDataComponent } from './live-data.component';
+import { RouterModule, Routes } from '@angular/router';
 
-import { LiveDataRoutingModule } from './live-data-routing.module';
-
-
+const routes: Routes = [
+  {
+    path: '',
+    component: LiveDataComponent,
+  },
+];
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    LiveDataRoutingModule
-  ]
+  declarations: [LiveDataComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class LiveDataModule { }
+export class LiveDataModule {}
