@@ -1,10 +1,11 @@
 // tailwind.config.js
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "custom-hover": "#4C9AA0",
+        customColor: "#4C9AA0" /*BigTac color*/,
       },
     },
   },

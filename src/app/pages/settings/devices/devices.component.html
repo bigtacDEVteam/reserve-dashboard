@@ -1,0 +1,145 @@
+<!------------------------Device Settings Tables--------------------->
+<h3 class="mb-2 text-lg font-bold text-white">Device Settings</h3>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-lg text-white">
+    <thead class="text-md border-b uppercase text-customColor">
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">DID</th>
+        <th scope="col" class="px-6 py-3">Battery</th>
+        <th scope="col" class="px-6 py-3">Gateway</th>
+        <th scope="col" class="px-6 py-3">Connection Status</th>
+        <!--ada tenet tak-->
+        <th scope="col" class="px-6 py-3">Usage Status</th>
+        <!--turun or naik-->
+        <th scope="col" class="px-6 py-3">Control</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b">
+        <td class="px-6 py-4">0101</td>
+        <td class="px-6 py-4">63368C30C8EC</td>
+        <td class="px-6 py-4">70</td>
+        <td class="px-6 py-4">North Exit 1</td>
+        <td class="px-6 py-4 text-green-400">Online</td>
+        <td class="px-6 py-4">Down</td>
+        <td class="px-6 py-4 text-right">
+          <!-- Button to open the modal -->
+          <div class="flex items-center">
+            <span class="mr-2 text-sm font-medium text-white">Up</span>
+
+            <label
+              for="toggle-switch"
+              class="relative inline-flex cursor-pointer items-center"
+            >
+              <input type="checkbox" id="toggle-switch" class="peer sr-only" />
+              <div
+                class="peer h-6 w-11 rounded-full bg-customColor peer-checked:bg-gray-500"
+              ></div>
+              <span
+                class="absolute left-1 top-1 h-4 w-4 rounded-full border border-gray-300 bg-white transition-transform peer-checked:translate-x-full peer-checked:border-white"
+              ></span>
+            </label>
+            <span class="ml-2 text-sm font-medium text-white">Down</span>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b">
+        <td class="px-6 py-4">0102</td>
+        <td class="px-6 py-4">6D5B827207E0</td>
+        <td class="px-6 py-4">54</td>
+        <td class="px-6 py-4">South Exit 1</td>
+        <td class="px-6 py-4 text-red-400">Offline</td>
+        <td class="px-6 py-4">Up</td>
+        <td class="px-6 py-4 text-right">
+          <div class="flex items-center">
+            <span class="mr-2 text-sm font-medium text-white">Up</span>
+            <label
+              for="toggle-switch-2"
+              class="relative inline-flex cursor-pointer items-center"
+            >
+              <input
+                type="checkbox"
+                id="toggle-switch-2"
+                class="peer sr-only"
+              />
+              <div
+                class="peer h-6 w-11 rounded-full bg-customColor peer-checked:bg-gray-500"
+              ></div>
+              <span
+                class="absolute left-1 top-1 h-4 w-4 rounded-full border border-gray-300 bg-white transition-transform peer-checked:translate-x-full peer-checked:border-white"
+              ></span>
+            </label>
+            <span class="ml-2 text-sm font-medium text-white">Down</span>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b">
+        <td class="px-6 py-4">0103</td>
+        <td class="px-6 py-4">6D5B827207E0</td>
+        <td class="px-6 py-4">54</td>
+        <td class="px-6 py-4">East Exit 1</td>
+        <td class="px-6 py-4 text-red-400">Offline</td>
+        <td class="px-6 py-4">Up</td>
+        <td class="px-6 py-4 text-right">
+          <div class="flex items-center">
+            <span class="mr-2 text-sm font-medium text-white">Up</span>
+            <label
+              for="toggle-switch-3"
+              class="relative inline-flex cursor-pointer items-center"
+            >
+              <input
+                type="checkbox"
+                id="toggle-switch-3"
+                class="peer sr-only"
+              />
+              <div
+                class="peer h-6 w-11 rounded-full bg-customColor peer-checked:bg-gray-500"
+              ></div>
+              <span
+                class="absolute left-1 top-1 h-4 w-4 rounded-full border border-gray-300 bg-white transition-transform peer-checked:translate-x-full peer-checked:border-white"
+              ></span>
+            </label>
+            <span class="ml-2 text-sm font-medium text-white">Down</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-----Pagination------>
+  <nav
+    class="flex items-center justify-between p-4 pt-4"
+    aria-label="Table navigation"
+  >
+    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+      Showing
+      <span class="text-white">1-10</span>
+      of
+      <span class="text-white">1000</span>
+    </span>
+    <ul class="inline-flex h-8 -space-x-px text-sm rtl:space-x-reverse">
+      <li>
+        <a
+          href="#"
+          class="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+          >Previous</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="flex h-8 items-center justify-center border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+          >1</a
+        >
+      </li>
+      <!-- Additional pagination items -->
+      <li>
+        <a
+          href="#"
+          class="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+          >Next</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
