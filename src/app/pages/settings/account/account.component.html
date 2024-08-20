@@ -1,0 +1,80 @@
+<!------------------------Account Settings Tables--------------------->
+<h3 class="mb-2 text-lg font-bold text-white">User Account Settings</h3>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-lg text-white">
+    <thead class="border-b text-lg uppercase text-customColor">
+      <tr>
+        <th scope="col" class="px-6 py-3">Name</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">Phone No.</th>
+        <th scope="col" class="px-6 py-3">Role</th>
+        <th scope="col" class="px-6 py-3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b">
+        <td class="px-6 py-4">Boustead</td>
+        <td class="px-6 py-4">boustead.com.my</td>
+        <td class="px-6 py-4">012-345678</td>
+        <td class="px-6 py-4">Admin</td>
+        <td class="px-6 py-4 text-right">
+          <!-- Button to open the modal -->
+          <button
+            class="font-lg rounded-full bg-customColor px-3 py-2 text-center text-xs font-bold text-white"
+            (click)="openAccountModal()"
+          >
+            <fa-icon [icon]="faPen" size="lg"></fa-icon>
+          </button>
+
+          <!-- Modal -->
+          <app-account-modal
+            *ngIf="isModalOpen"
+            (close)="closeAccountModal()"
+          ></app-account-modal>
+
+          <button
+            class="font-lg ml-2 rounded-full bg-red-500 px-3 py-2 text-center text-xs font-bold text-white"
+          >
+            <fa-icon [icon]="faTrash" size="lg"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-----Pagination------>
+  <nav
+    class="flex items-center justify-between p-4 pt-4"
+    aria-label="Table navigation"
+  >
+    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+      Showing
+      <span class="text-white">1-10</span>
+      of
+      <span class="text-white">1000</span>
+    </span>
+    <ul class="inline-flex h-8 -space-x-px text-sm rtl:space-x-reverse">
+      <li>
+        <a
+          href="#"
+          class="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+          >Previous</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="flex h-8 items-center justify-center border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+          >1</a
+        >
+      </li>
+      <!-- Additional pagination items -->
+      <li>
+        <a
+          href="#"
+          class="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+          >Next</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
