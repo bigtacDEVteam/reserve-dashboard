@@ -1,65 +1,248 @@
-<!-- Operation Table -->
-<div class="col-span-3">
-  <div class="mx-auto max-w-6xl rounded-lg p-2">
-    <h2 class="mb-4 text-xl font-semibold">Barrier Operation Record</h2>
-    <table class="table-lg info-box w-full table-auto border-collapse border">
-      <thead>
-        <tr class="custom-bg">
-          <th class="border border-gray-300 px-4 py-2 text-white">NO.</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">DID</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Action</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Status</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Date</th>
-          <th class="border border-gray-300 px-4 py-2 text-white">Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Row 1 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">1</td>
-          <td class="border border-gray-300 px-4 py-2">001</td>
-          <td class="border border-gray-300 px-4 py-2">Close</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-        <!-- Row 2 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">2</td>
-          <td class="border border-gray-300 px-4 py-2">002</td>
-          <td class="border border-gray-300 px-4 py-2">Close</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-        <!-- Row 3 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">3</td>
-          <td class="border border-gray-300 px-4 py-2">003</td>
-          <td class="border border-gray-300 px-4 py-2">Open</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-        <!-- Row 4 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">4</td>
-          <td class="border border-gray-300 px-4 py-2">004</td>
-          <td class="border border-gray-300 px-4 py-2">Open</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-        <!-- Row 5 -->
-        <tr class="hover:bg-custom">
-          <td class="border border-gray-300 px-4 py-2">5</td>
-          <td class="border border-gray-300 px-4 py-2">005</td>
-          <td class="border border-gray-300 px-4 py-2">Close</td>
-          <td class="border border-gray-300 px-4 py-2">Successful</td>
-          <td class="border border-gray-300 px-4 py-2">20/8/2024</td>
-          <td class="border border-gray-300 px-4 py-2">14:30</td>
-        </tr>
-      </tbody>
-    </table>
+<h3 class="text-2xl font-bold text-white">Live Data</h3>
+
+<div class="container mx-auto p-2">
+  <div class="flex flex-col">
+    <div class="w-full rounded-lg bg-gray-700 p-6">
+      <div class="mb-2 flex items-center pb-2">
+        <h3 class="text-lg font-bold text-white">Device Status</h3>
+        <span
+          class="ml-2 rounded-full bg-red-500 px-2 py-2 text-sm font-medium text-gray-800"
+        ></span>
+        <p class="pl-2 text-white">Error</p>
+        <span
+          class="ml-2 rounded-full bg-green-500 px-2 py-2 text-sm font-medium text-gray-800"
+        ></span>
+        <p class="pl-2 text-white">Available</p>
+
+        <span
+          class="ml-2 rounded-full bg-yellow-500 px-2 py-2 text-sm font-medium text-gray-800"
+        ></span>
+        <p class="pl-2 text-white">Occupied</p>
+      </div>
+      <div class="container mx-auto my-8">
+        <div class="scrollbar flex snap-x overflow-x-auto rounded-md p-4">
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-red-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 1</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-green-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 2</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-green-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 3</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-yellow-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 4</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-yellow-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 5</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-yellow-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 6</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-green-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 7</p>
+          </div>
+          <div
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-green-500 p-2"
+          >
+            <img src="/assets/images/reserve-parking.png" class="w-40" />
+            <p class="text-center text-white">Bay 8</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---------------------------Data table-------------------------->
+  <div class="flex flex-col pt-6">
+    <div class="w-full rounded-lg bg-gray-700 p-6">
+      <div class="mb-4 flex flex-col pt-4">
+        <!-- Changed to flex-col -->
+        <h3 class="mb-2 flex-shrink-0 text-lg font-bold text-white">
+          <!-- Added margin-bottom -->
+          Reserve Park Live Data
+        </h3>
+
+        <div class="flex items-center space-x-2">
+          <div class="form-group flex-shrink-0">
+            <label
+              for="plate"
+              class="block text-sm font-medium text-white"
+            ></label>
+            <input
+              type="text"
+              name="plate"
+              id="plate"
+              class="block w-full rounded-lg border border-customColor bg-gray-800 p-2.5 text-sm text-white placeholder-gray-400 shadow-sm"
+              placeholder="Search No. Plate"
+              required
+            />
+          </div>
+          <div class="form-group flex-shrink-0">
+            <label
+              for="bay"
+              class="block text-sm font-medium text-white"
+            ></label>
+            <input
+              type="text"
+              name="bay"
+              id="bay"
+              class="block w-full rounded-lg border border-customColor bg-gray-800 p-2.5 text-sm text-white placeholder-gray-400 shadow-sm"
+              placeholder="Select Parking Bay"
+              required
+            />
+          </div>
+
+          <!-- Date & Time Input -->
+          <div class="form-group relative mb-3 w-3/5 flex-shrink-0 pb-4">
+            <div class="absolute inset-0 z-10">
+              <input
+                ngxDaterangepickerMd
+                [(ngModel)]="selectedDateRange"
+                [timePicker]="true"
+                [timePicker24Hour]="true"
+                [autoApply]="true"
+                [locale]="{ format: 'YYYY-MM-DD HH:mm' }"
+                class="block w-full rounded-lg border border-customColor bg-gray-800 p-2.5 text-sm text-white placeholder-gray-400 shadow-sm"
+                placeholder="Select date and time range"
+              />
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button
+            class="btn-custom flex-shrink-0 p-2 font-semibold"
+            type="button"
+            (click)="openLiveDataModal()"
+          >
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="table-md text-md w-full bg-gray-800 text-white">
+          <thead class="text-md bg-wh border-b text-customColor">
+            <tr>
+              <th scope="col" class="px-4 py-3">No. Plate</th>
+              <th scope="col" class="px-6 py-3">Parking Bay</th>
+              <th scope="col" class="px-6 py-3">Entry Date</th>
+              <th scope="col" class="px-6 py-3">Entry Time</th>
+              <th scope="col" class="px-6 py-3">Exit Date</th>
+              <th scope="col" class="px-6 py-3">Exit Time</th>
+              <th scope="col" class="px-6 py-3">Duration</th>
+              <th scope="col" class="px-6 py-3">Fees</th>
+              <th scope="col" class="px-6 py-3">Status</th>
+              <th scope="col" class="px-6 py-3">Users</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b hover:bg-gray-700">
+              <td class="px-4 py-3">ABC123</td>
+              <td class="px-6 py-3">Bay 12</td>
+              <td class="px-6 py-3">12/6/2024</td>
+              <td class="px-6 py-3">12:30:43</td>
+              <td class="px-6 py-3">12/6/2024</td>
+              <td class="px-6 py-3">13:30:43</td>
+              <td class="px-6 py-3">1h 0m</td>
+              <td class="px-6 py-3">2.00</td>
+              <td class="px-6 py-3 text-green-500">Paid</td>
+              <td class="px-6 py-3">Alex Turner</td>
+            </tr>
+
+            <tr class="border-b hover:bg-gray-700">
+              <td class="px-6 py-3">DEF456</td>
+              <td class="px-6 py-3">Bay 7</td>
+              <td class="px-6 py-3">12/6/2024</td>
+              <td class="px-6 py-3">12:00:43</td>
+              <td class="px-6 py-3">12/6/2024</td>
+              <td class="px-6 py-3">14:30:43</td>
+              <td class="px-6 py-3">2h 30m</td>
+              <td class="px-6 py-3">4.00</td>
+              <td class="px-6 py-3 text-green-500">Paid</td>
+              <td class="px-6 py-3">John Doe</td>
+            </tr>
+
+            <tr class="border-b hover:bg-gray-700">
+              <td class="px-6 py-3">GHI789</td>
+              <td class="px-6 py-3">Bay 15</td>
+              <td class="px-6 py-3">12/6/2024</td>
+              <td class="px-6 py-3">12:30:43</td>
+              <td class="px-6 py-3">12/6/2024</td>
+              <td class="px-6 py-3">13:30:43</td>
+              <td class="px-6 py-3">1h 0m</td>
+              <td class="px-6 py-3">2.00</td>
+              <td class="px-6 py-3 text-red-500">Unpaid</td>
+              <td class="px-6 py-3">Jane Smith</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-----Pagination------>
+        <nav
+          class="flex items-center justify-between bg-gray-800 p-4 pt-4"
+          aria-label="Table navigation "
+        >
+          <span class="text-sm font-normal text-gray-500">
+            Showing
+            <span class="text-white">1-3</span>
+            of
+            <span class="text-white">1000</span>
+          </span>
+          <ul class="inline-flex h-8 -space-x-px text-sm rtl:space-x-reverse">
+            <li>
+              <a
+                href="#"
+                class="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+                >Previous</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex h-8 items-center justify-center border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+                >1</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex h-8 items-center justify-center border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+                >2</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 px-3 leading-tight text-gray-500 hover:bg-customColor hover:text-white"
+                >Next</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <app-live-data-modal
+        *ngIf="isModalOpen"
+        (close)="closeLiveDataModal()"
+      ></app-live-data-modal>
+    </div>
   </div>
 </div>

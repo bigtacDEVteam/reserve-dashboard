@@ -1,12 +1,13 @@
-<div class="container">
+<h3 class="pb-4 text-2xl font-bold text-white">Settings</h3>
+<div class="container mx-auto p-2">
   <div class="md:flex">
     <ul
-      class="flex-column space-y text-md mb-4 space-y-4 font-medium text-gray-500 md:mb-0 md:me-4"
+      class="flex-column space-y text-md mb-4 space-y-4 font-bold text-white md:mb-0 md:me-4"
     >
       <li>
         <a
           routerLink="/settings/device"
-          routerLinkActive="bg-customColor text-white"
+          routerLinkActive="bg-customColor"
           class="inline-flex w-full items-center rounded-lg px-4 py-3"
         >
           Device
@@ -15,7 +16,7 @@
       <li>
         <a
           routerLink="/settings/payment"
-          routerLinkActive="bg-customColor text-white"
+          routerLinkActive="bg-customColor"
           class="inline-flex w-full items-center rounded-lg px-4 py-3"
         >
           Payment
@@ -24,7 +25,7 @@
       <li>
         <a
           routerLink="/settings/account"
-          routerLinkActive="bg-customColor text-white"
+          routerLinkActive="bg-customColor"
           class="inline-flex w-full items-center rounded-lg px-4 py-3"
         >
           Account
@@ -33,14 +34,14 @@
       <li>
         <a
           routerLink="/settings/member"
-          routerLinkActive="bg-customColor text-white"
+          routerLinkActive="bg-customColor"
           class="inline-flex w-full items-center rounded-lg px-4 py-3"
         >
           Member
         </a>
       </li>
     </ul>
-    <div class="w-full rounded-lg bg-gray-800 p-6">
+    <div class="w-full rounded-lg bg-gray-700 p-6">
       <router-outlet></router-outlet>
     </div>
   </div>

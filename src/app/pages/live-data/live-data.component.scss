@@ -1,0 +1,32 @@
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(31, 41, 55);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #3e8a8f;
+  }
+}
+
+.form-group.relative {
+  position: relative;
+  z-index: 1; // Ensure this is lower than the modal's z-index
+}
+
+.form-group.relative .absolute {
+  z-index: 1; // Lower than the modal to keep it behind
+}
+
+.form-group.relative .ngx-daterangepicker-material {
+  z-index: 0; // Ensure the picker is behind the modal
+}
