@@ -22,9 +22,8 @@ body {
 }
 
 .btn-custom {
-  @apply border-2 text-[#4c9aa0];
+  @apply border-2;
   border-color: #4c9aa0;
-  color: #4c9aa0;
   border-radius: 8px;
 
   &:hover {
@@ -64,41 +63,6 @@ body {
 
 @media (min-width: 1536px) {
   .container {
-    max-width: 1836px;
-  }
-}
-::ng-deep .ngx-daterangepicker-material {
-  .md-drppicker {
-    background-color: #f0f0f0 !important; // Example: light grey
-  }
-
-  .calendar-table {
-    background-color: #000 !important;
-
-    th,
-    td {
-      color: #333333 !important; // Example: dark grey
-      font-size: 14px !important; // Adjust as needed
-      padding: 10px !important; // Adjust cell padding
-    }
-
-    .today {
-      background-color: #d1eaff !important; // Example: light blue
-      color: #000000 !important; // Example: black
-    }
-
-    .start-date,
-    .end-date {
-      background-color: #2fe81a !important; // Example: blue
-      color: #ffffff !important; // Example: white
-    }
-  }
-
-  .month {
-    color: #1ae89c !important; // Example: green
-  }
-
-  .calendar-time select {
-    font-size: 14px !important; // Adjust dropdown text size
+    max-width: 1600px;
   }
 }

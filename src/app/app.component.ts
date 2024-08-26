@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Reserve Admin Dashboard';
-  isSidebarCollapsed = true;
-  toggleSidebar() {
-    this.isSidebarCollapsed = !this.isSidebarCollapsed; // Toggle the collapse state
-  }
 }

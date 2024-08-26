@@ -1,13 +1,9 @@
-<div
-  class="flex min-h-full flex-grow flex-col bg-gray-900 text-white transition-all duration-300 ease-in-out"
-  [ngClass]="{ 'w-104': !isCollapsed, 'w-20': isCollapsed }"
->
+<div class="flex min-h-full flex-grow flex-col bg-gray-900 text-white">
   <div class="flex items-center justify-center py-4">
     <img
       src="/assets/images/SPark_Logo_wht.png"
       alt="Logo"
-      class="transition-all duration-300 ease-in-out"
-      [ngClass]="{ 'h-12': !isCollapsed, 'h-8': isCollapsed }"
+      class="h-auto w-12"
     />
   </div>
   <nav class="flex-1 space-y-2 px-2">
@@ -18,11 +14,7 @@
       routerLinkActive="bg-customColor text-white"
     >
       <fa-icon [icon]="faGaugeSimpleHigh" size="lg" class="mr-3"></fa-icon>
-      <span
-        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
-        class="text-lg"
-        >Dashboard</span
-      >
+      <span class="text-lg">Dashboard</span>
     </a>
 
     <a
@@ -32,11 +24,7 @@
       routerLinkActive="bg-customColor text-white"
     >
       <fa-icon [icon]="faChartLine" size="lg" class="mr-3"></fa-icon>
-      <span
-        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
-        class="text-lg"
-        >Live Data</span
-      >
+      <span class="text-lg">Live Data</span>
     </a>
     <a
       href="#"
@@ -45,11 +33,7 @@
       routerLinkActive="bg-customColor text-white"
     >
       <fa-icon [icon]="faFile" size="lg" class="mr-3"></fa-icon>
-      <span
-        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
-        class="text-lg"
-        >Report</span
-      >
+      <span class="text-lg">Report</span>
     </a>
     <a
       href="#"
@@ -58,11 +42,7 @@
       routerLinkActive="bg-customColor text-white"
     >
       <fa-icon [icon]="faUser" size="lg" class="mr-3"></fa-icon>
-      <span
-        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
-        class="text-lg"
-        >Settings</span
-      >
+      <span class="text-lg">Settings</span>
     </a>
     <a
       href="#"
@@ -71,11 +51,7 @@
       routerLinkActive="bg-customColor text-white"
     >
       <fa-icon [icon]="faCircleQuestion" size="lg" class="mr-3"></fa-icon>
-      <span
-        [ngClass]="{ hidden: isCollapsed, block: !isCollapsed }"
-        class="text-lg"
-        >Help</span
-      >
+      <span class="text-lg">Help</span>
     </a>
   </nav>
 </div>

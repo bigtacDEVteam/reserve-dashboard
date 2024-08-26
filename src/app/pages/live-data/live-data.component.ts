@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import moment from 'moment';
 
 @Component({
   selector: 'app-live-data',
@@ -18,9 +17,4 @@ export class LiveDataComponent {
   closeLiveDataModal() {
     this.isModalOpen = false;
   }
-
-  selectedDateRange: any = {
-    startDate: moment().startOf('day'),
-    endDate: moment().endOf('day'),
-  };
 }

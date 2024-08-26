@@ -17,16 +17,3 @@
     background-color: #3e8a8f;
   }
 }
-
-.form-group.relative {
-  position: relative;
-  z-index: 1; // Ensure this is lower than the modal's z-index
-}
-
-.form-group.relative .absolute {
-  z-index: 1; // Lower than the modal to keep it behind
-}
-
-.form-group.relative .ngx-daterangepicker-material {
-  z-index: 0; // Ensure the picker is behind the modal
-}
