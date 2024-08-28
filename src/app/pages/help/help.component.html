@@ -1,0 +1,40 @@
+<div class="container mx-auto p-2">
+  <h3 class="pb-4 text-2xl font-bold text-white">Help and Support</h3>
+
+  <div class="md:flex">
+    <ul
+      class="flex-column space-y text-md mb-4 space-y-4 font-bold text-white md:mb-0 md:me-4"
+    >
+      <li>
+        <a
+          routerLink="/help/faq"
+          routerLinkActive="bg-customColor"
+          class="inline-flex w-full items-center rounded-lg px-4 py-3"
+        >
+          Frequent Asked Questions
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/help/transaction"
+          routerLinkActive="bg-customColor"
+          class="inline-flex w-full items-center rounded-lg px-4 py-3"
+        >
+          Transaction
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/help/contact"
+          routerLinkActive="bg-customColor"
+          class="inline-flex w-full items-center rounded-lg px-4 py-3"
+        >
+          Contact Us
+        </a>
+      </li>
+    </ul>
+    <div class="w-full rounded-lg bg-gray-700 p-6">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,7 @@ body {
   font-size: 14px;
 }
 
+
 .dark body {
   @apply bg-gray-900 text-gray-100;
 }
@@ -35,9 +36,9 @@ body {
 }
 
 .btn-custom {
-  @apply border-2 text-[#4c9aa0];
+  @apply border-2;
   border-color: #4c9aa0;
-  color: #4c9aa0;
+  border-radius: 8px;
 
   &:hover {
     @apply bg-[#4c9aa0] text-white;
@@ -76,6 +77,6 @@ body {
 
 @media (min-width: 1536px) {
   .container {
-    max-width: 1836px;
+    max-width: 1600px;
   }
 }

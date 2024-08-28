@@ -19,5 +19,4 @@ export class SidebarComponent {
   faFile = faFile;
   faUser = faUser;
   faCircleQuestion = faCircleQuestion;
-  @Input() isCollapsed = true;
 }

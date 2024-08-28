@@ -1,9 +1,9 @@
 <div class="flex h-screen">
-  <app-sidebar [isCollapsed]="isSidebarCollapsed"></app-sidebar>
+  <app-sidebar></app-sidebar>
 
   <div class="flex flex-1 flex-col">
-    <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
-    <main class="flex-1 bg-gray-100 p-6">
+    <app-navbar></app-navbar>
+    <main class="flex-1 overflow-auto bg-gray-800 p-6">
       <router-outlet></router-outlet>
     </main>
   </div>

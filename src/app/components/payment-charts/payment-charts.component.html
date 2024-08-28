@@ -1,0 +1,64 @@
+<div class="container mx-auto p-2">
+  <div class="flex">
+    <div class="grid grid-cols-4 gap-4 text-white md:flex">
+      <!-- Info Box 1 -->
+      <div
+        class="info-box over:text-customColor flex transform items-center rounded-lg border-2 border-customColor bg-gray-800 p-4 shadow-md transition-transform hover:scale-105 hover:bg-customColor"
+      >
+        <div>
+          <h3 class="items-center text-lg font-semibold">DB/CC Total</h3>
+          <p class="text-xl">RM 2,000</p>
+        </div>
+      </div>
+
+      <!-- Info Box 2 -->
+      <div
+        class="info-box over:text-customColor flex transform items-center rounded-lg border-2 border-customColor bg-gray-800 p-4 shadow-md transition-transform hover:scale-105 hover:bg-customColor"
+      >
+        <div>
+          <h3 class="text-lg font-semibold">FPX Total</h3>
+          <p class="text-xl">RM 3,500</p>
+        </div>
+      </div>
+
+      <!-- Info Box 3 -->
+      <div
+        class="info-box over:text-customColor flex transform items-center rounded-lg border-2 border-customColor bg-gray-800 p-4 shadow-md transition-transform hover:scale-105 hover:bg-customColor"
+      >
+        <div>
+          <h3 class="text-lg font-semibold">e-Wallet Total</h3>
+          <p class="text-xl">RM 3,999</p>
+        </div>
+      </div>
+
+      <!-- Info Box 4 -->
+      <div
+        class="info-box over:text-customColor flex transform items-center rounded-lg border border-gray-800 bg-customColor p-4 shadow-md transition-transform hover:scale-105 hover:bg-gray-800"
+      >
+        <div>
+          <h3 class="text-lg font-semibold">Total</h3>
+          <p class="text-xl">RM 9,499</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bar Chart -->
+  <div class="flex justify-center">
+    <div class="max-w w-full rounded-lg bg-gray-700 p-4">
+      <h3 class="mb-2 text-lg font-semibold text-white">Weekly Payment Data</h3>
+      <ng-container *ngIf="isBrowser">
+        <div class="relative">
+          <canvas
+            id="paymentChart"
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [plugins]="lineChartPlugins"
+            [legend]="true"
+            [type]="'line'"
+          ></canvas>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
