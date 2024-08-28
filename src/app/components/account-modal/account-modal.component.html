@@ -3,6 +3,7 @@
 >
   <div class="relative max-h-full w-full max-w-md">
     <form class="relative rounded-lg bg-gray-800 shadow">
+      <!-- Modal header -->
       <div class="flex items-start justify-between rounded-t border-b p-4">
         <h3 class="text-xl font-semibold text-white">Edit User Account</h3>
         <button
@@ -10,9 +11,10 @@
           type="button"
           class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-lg text-gray-400 hover:bg-gray-200 hover:text-white"
         >
-          <fa-icon [icon]="faClose" size="lg"> </fa-icon>
+          <fa-icon [icon]="faClose" size="lg"></fa-icon>
         </button>
       </div>
+
       <!-- Modal body -->
       <div class="space-y-4 p-6">
         <div class="grid grid-cols-2 gap-6">
@@ -43,7 +45,7 @@
               id="email"
               class="block w-full rounded-lg border border-customColor bg-gray-800 p-2.5 text-lg text-white shadow-sm focus:border-blue-600 focus:ring-blue-600"
               placeholder="."
-              required=""
+              required
             />
           </div>
           <div class="col-span-6 sm:col-span-3">
@@ -58,7 +60,7 @@
               id="phone-number"
               class="block w-full rounded-lg border border-customColor bg-gray-800 p-2.5 text-lg text-white shadow-sm focus:border-blue-600 focus:ring-blue-600"
               placeholder="."
-              required=""
+              required
             />
           </div>
           <div class="col-span-6 sm:col-span-3">
@@ -73,11 +75,12 @@
               id="role"
               class="block w-full rounded-lg border border-customColor bg-gray-800 p-2.5 text-lg text-white shadow-sm focus:border-blue-600 focus:ring-blue-600"
               placeholder="."
-              required=""
+              required
             />
           </div>
         </div>
       </div>
+
       <!-- Modal footer -->
       <div
         class="flex items-center justify-end rounded-b border-t border-gray-200 p-6"
