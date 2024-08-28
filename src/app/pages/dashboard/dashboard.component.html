@@ -95,6 +95,63 @@
           >
           </canvas>
         </ng-container>
+<div class="container mx-auto px-4">
+  <!-- Info Boxes (1-4) in a single row -->
+  <div class="grid grid-cols-4 gap-4">
+    <!-- Info Box 1 -->
+    <div
+      class="info-box flex transform items-center rounded-lg bg-customColor p-4 shadow-md transition-transform hover:scale-105 hover:bg-white hover:text-customColor"
+    >
+      <div
+        class="mr-4 rounded-full bg-white p-3 text-[#4c9aa0] transition-colors hover:bg-customColor"
+      >
+        <fa-icon
+          [icon]="faCar"
+          size="lg"
+          class="text-[#4c9aa0] transition-colors hover:text-white"
+        ></fa-icon>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">Total Reserved</h3>
+        <p class="text-2xl font-bold">28</p>
+      </div>
+    </div>
+
+    <!-- Info Box 2 -->
+    <div
+      class="info-box flex transform items-center rounded-lg bg-customColor p-4 shadow-md transition-transform hover:scale-105 hover:bg-white hover:text-[#4c9aa0]"
+    >
+      <div
+        class="custom-bg hover:text-dark mr-4 rounded-full bg-white p-3 text-[#4c9aa0] transition-colors hover:bg-customColor"
+      >
+        <fa-icon
+          [icon]="faParking"
+          size="lg"
+          class="text-[#4c9aa0] transition-colors hover:text-white"
+        ></fa-icon>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">Available Parking</h3>
+        <p class="text-2xl font-bold">40/61</p>
+      </div>
+    </div>
+
+    <!-- Info Box 3 -->
+    <div
+      class="info-box flex transform items-center rounded-lg bg-customColor p-4 shadow-md transition-transform hover:scale-105 hover:bg-white hover:text-[#4c9aa0]"
+    >
+      <div
+        class="custom-bg hover:text-dark mr-4 rounded-full bg-white p-3 text-[#4c9aa0] transition-colors hover:bg-customColor"
+      >
+        <fa-icon
+          [icon]="faAddressCard"
+          size="lg"
+          class="text-[#4c9aa0] transition-colors hover:text-white"
+        ></fa-icon>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">Members</h3>
+        <p class="text-2xl font-bold">100</p>
       </div>
 
       <!-- Line Chart -->
@@ -113,6 +170,22 @@
           >
           </canvas>
         </ng-container>
+    <!-- Info Box 4 -->
+    <div
+      class="info-box flex transform items-center rounded-lg bg-customColor p-4 shadow-md transition-transform hover:scale-105 hover:bg-white hover:text-[#4c9aa0]"
+    >
+      <div
+        class="custom-bg hover:text-dark mr-4 rounded-full bg-white p-3 text-[#4c9aa0] transition-colors hover:bg-customColor"
+      >
+        <fa-icon
+          [icon]="faUsers"
+          size="lg"
+          class="text-[#4c9aa0] transition-colors hover:text-white"
+        ></fa-icon>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">Guests</h3>
+        <p class="text-2xl font-bold">120</p>
       </div>
     </div>
   </div>
