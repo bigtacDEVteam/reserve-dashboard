@@ -7,11 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: LiveDataComponent,
-  },
-  {
-    path: 'livemodal',
-    component: LiveDataModalComponent,
-    outlet: 'modal',
+    children: [{ path: 'livemodal', component: LiveDataModalComponent }],
   },
 ];
 
