@@ -1,0 +1,91 @@
+<div class="flex h-screen w-full bg-gray-800">
+  <div
+    class="relative hidden w-1/2 items-center bg-cover bg-no-repeat lg:flex"
+    [ngStyle]="{ 'background-image': 'url(' + backgroundImageUrl + ')' }"
+  >
+    <div class="absolute inset-0 z-0 bg-black opacity-60"></div>
+    <div class="z-10 w-full px-24 text-white">
+      <h1 class="text-left text-5xl font-bold tracking-wide">
+        Reserve Parking Admin Dashboard
+      </h1>
+    </div>
+    <div
+      class="absolute bottom-0 left-0 right-0 flex justify-center space-x-4 p-4 text-center"
+    >
+      <span>
+        <a href="https://www.bigtac.com.my" target="_blank">
+          <fa-icon [icon]="faGlobe" size="lg" class="text-white"></fa-icon>
+        </a>
+      </span>
+
+      <span>
+        <a href="https://wa.me/60193455891" target="_blank">
+          <fa-icon
+            [icon]="faMobileScreen"
+            size="lg"
+            class="text-white"
+          ></fa-icon
+        ></a>
+      </span>
+      <span>
+        <a href="mailto:admin@bigtac.com.my">
+          <fa-icon [icon]="faEnvelope" size="lg" class="text-white"></fa-icon>
+        </a>
+      </span>
+    </div>
+  </div>
+  <div
+    class="relative flex w-full items-center justify-center bg-gray-900 text-white lg:w-1/2"
+  >
+    <div class="w-full max-w-md space-y-6 rounded-lg bg-gray-800 p-8 shadow-lg">
+      <h2 class="text-center text-2xl font-bold text-white">Sign Up</h2>
+      <form action="#" method="POST" class="mt-4">
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-white"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-white"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="confirmPassword"
+            class="block text-sm font-medium text-white"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            required
+            class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <button
+          [routerLink]="['/login']"
+          type="button"
+          class="w-full rounded-lg bg-customColor px-4 py-2 font-bold text-white"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
