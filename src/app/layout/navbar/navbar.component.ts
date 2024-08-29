@@ -1,6 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { faBars, faUsers, faBell } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +8,15 @@ import { faBars, faUsers, faBell } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  @Output() toggleSidebar = new EventEmitter<void>();
   faBars = faBars;
   faUsers = faUsers;
   faBell = faBell;
+  email = '';
+  password = '';
+  constructor(private authService: AuthService) {}
 
-  toggleSidebarCollapse() {
-    this.toggleSidebar.emit();
+  logOut() {
+    this.authService.logout();
+    console.log('test logout');
   }
 }

@@ -1,37 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./pages/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule
-      ),
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
   {
-    path: 'live-data',
+    path: '',
+    canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./pages/live-data/live-data.module').then(
-        (m) => m.LiveDataModule
-      ),
+      import('./layout/main/main.module').then((m) => m.MainModule), //replace with main module
   },
-  {
-    path: 'report',
-    loadChildren: () =>
-      import('./pages/report/report.module').then((m) => m.ReportModule),
-  },
-  {
-    path: 'settings',
-    loadChildren: () =>
-      import('./pages/settings/settings.module').then((m) => m.SettingsModule),
-  },
-  {
-    path: 'help',
-    loadChildren: () =>
-      import('./pages/help/help.module').then((m) => m.HelpModule),
-  },
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({
