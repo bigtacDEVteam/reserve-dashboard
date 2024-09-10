@@ -5,6 +5,7 @@ import { MemberComponent } from './member/member.component';
 //import { AccountComponent } from './account/account.component';
 //import { PaymentComponent } from './payment/payment.component';
 import { DevicesComponent } from './devices/devices.component';
+import { SiteComponent } from './site/site.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       //{ path: 'account', component: AccountComponent },
       //{ path: 'payment', component: PaymentComponent },
       { path: 'device', component: DevicesComponent },
+      { path: 'site', component: SiteComponent },
       { path: '', redirectTo: 'device', pathMatch: 'full' },
     ],
   },

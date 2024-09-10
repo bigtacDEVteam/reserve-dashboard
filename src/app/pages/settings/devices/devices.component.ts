@@ -11,11 +11,11 @@ export class DevicesComponent {
   faTrash = faTrash;
   isModalOpen = false;
 
-  openDeviceModal() {
+  openControlModal() {
     this.isModalOpen = true;
   }
 
-  closeDeviceModal() {
+  closeControlModal() {
     this.isModalOpen = false;
   }
 }

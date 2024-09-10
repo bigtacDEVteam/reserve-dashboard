@@ -41,6 +41,19 @@
       <h2 class="text-center text-2xl font-bold text-white">Sign Up</h2>
       <form action="#" method="POST" class="mt-4">
         <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-white"
+            >Name</label
+          >
+          <input
+            type="name"
+            id="name"
+            name="name"
+            [(ngModel)]="name"
+            required
+            class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <div class="mb-4">
           <label for="email" class="block text-sm font-medium text-white"
             >Email</label
           >
@@ -48,6 +61,7 @@
             type="email"
             id="email"
             name="email"
+            [(ngModel)]="email"
             required
             class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
@@ -58,6 +72,7 @@
           >
           <input
             type="password"
+            [(ngModel)]="password"
             id="password"
             name="password"
             required
@@ -74,12 +89,13 @@
             type="password"
             id="confirmPassword"
             name="confirmPassword"
+            [(ngModel)]="confirmPassword"
             required
             class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
         <button
-          [routerLink]="['/login']"
+          (click)="submitRegister()"
           type="button"
           class="w-full rounded-lg bg-customColor px-4 py-2 font-bold text-white"
         >

@@ -10,6 +10,9 @@
         <th scope="col" class="px-6 py-3">Gateway</th>
         <th scope="col" class="px-6 py-3">Connection Status</th>
         <th scope="col" class="px-6 py-3">Usage Status</th>
+        <th scope="col" class="px-6 py-3">Remark</th>
+        <th scope="col" class="px-6 py-3">Signal Strength</th>
+        <th scope="col" class="px-6 py-3">Sensor Status</th>
         <th scope="col" class="px-6 py-3">Control</th>
       </tr>
     </thead>
@@ -21,8 +24,32 @@
         <td class="px-6 py-4">North Exit 1</td>
         <td class="px-6 py-4 text-green-400">Online</td>
         <td class="px-6 py-4">Down</td>
+        <td class="px-6 py-4">01LG0203</td>
+        <td class="px-6 py-4">1</td>
+        <td class="px-6 py-4">Normal</td>
         <td class="px-6 py-4 text-right">
           <!-- Button to open the modal -->
+          <button
+            class="font-lg rounded-full bg-customColor px-3 py-2 text-center text-xs font-bold text-white"
+            (click)="openControlModal()"
+          >
+            <fa-icon [icon]="faPen" size="lg"></fa-icon>
+          </button>
+
+          <!-- Modal -->
+          <app-control-modal
+            *ngIf="isModalOpen"
+            (close)="closeControlModal()"
+          ></app-control-modal>
+
+          <button
+            class="font-lg ml-2 rounded-full bg-red-500 px-3 py-2 text-center text-xs font-bold text-white"
+          >
+            <fa-icon [icon]="faTrash" size="lg"></fa-icon>
+          </button>
+        </td>
+        <!--Button for Admin only
+        <td class="px-6 py-4 text-right">
           <div class="flex items-center">
             <span class="mr-2 text-sm font-medium text-white">Up</span>
 
@@ -40,67 +67,7 @@
             </label>
             <span class="ml-2 text-sm font-medium text-white">Down</span>
           </div>
-        </td>
-      </tr>
-      <tr class="border-b">
-        <td class="px-6 py-4">0102</td>
-        <td class="px-6 py-4">6D5B827207E0</td>
-        <td class="px-6 py-4">54</td>
-        <td class="px-6 py-4">South Exit 1</td>
-        <td class="px-6 py-4 text-red-400">Offline</td>
-        <td class="px-6 py-4">Up</td>
-        <td class="px-6 py-4 text-right">
-          <div class="flex items-center">
-            <span class="mr-2 text-sm font-medium text-white">Up</span>
-            <label
-              for="toggle-switch-2"
-              class="relative inline-flex cursor-pointer items-center"
-            >
-              <input
-                type="checkbox"
-                id="toggle-switch-2"
-                class="peer sr-only"
-              />
-              <div
-                class="peer h-6 w-11 rounded-full bg-customColor peer-checked:bg-gray-500"
-              ></div>
-              <span
-                class="absolute left-1 top-1 h-4 w-4 rounded-full border border-gray-300 bg-white transition-transform peer-checked:translate-x-full peer-checked:border-white"
-              ></span>
-            </label>
-            <span class="ml-2 text-sm font-medium text-white">Down</span>
-          </div>
-        </td>
-      </tr>
-      <tr class="border-b">
-        <td class="px-6 py-4">0103</td>
-        <td class="px-6 py-4">6D5B827207E0</td>
-        <td class="px-6 py-4">54</td>
-        <td class="px-6 py-4">East Exit 1</td>
-        <td class="px-6 py-4 text-red-400">Offline</td>
-        <td class="px-6 py-4">Up</td>
-        <td class="px-6 py-4 text-right">
-          <div class="flex items-center">
-            <span class="mr-2 text-sm font-medium text-white">Up</span>
-            <label
-              for="toggle-switch-3"
-              class="relative inline-flex cursor-pointer items-center"
-            >
-              <input
-                type="checkbox"
-                id="toggle-switch-3"
-                class="peer sr-only"
-              />
-              <div
-                class="peer h-6 w-11 rounded-full bg-customColor peer-checked:bg-gray-500"
-              ></div>
-              <span
-                class="absolute left-1 top-1 h-4 w-4 rounded-full border border-gray-300 bg-white transition-transform peer-checked:translate-x-full peer-checked:border-white"
-              ></span>
-            </label>
-            <span class="ml-2 text-sm font-medium text-white">Down</span>
-          </div>
-        </td>
+        </td--->
       </tr>
     </tbody>
   </table>

@@ -17,3 +17,7 @@
     background-color: #3e8a8f;
   }
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

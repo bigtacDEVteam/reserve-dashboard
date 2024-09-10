@@ -11,6 +11,12 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { MainComponent } from './layout/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
+import { LocationComponent } from './pages/location/location.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +26,7 @@ import { RegisterComponent } from './pages/register/register.component';
     MainComponent,
     LoginComponent,
     RegisterComponent,
+    LocationComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,9 +34,10 @@ import { RegisterComponent } from './pages/register/register.component';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    HttpClientModule,
     // AuthModule,
   ],
-  providers: [],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

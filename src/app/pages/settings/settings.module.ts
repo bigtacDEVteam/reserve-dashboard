@@ -10,6 +10,9 @@ import { MemberModalComponent } from '../../components/member-modal/member-modal
 //import { PaymentComponent } from './payment/payment.component';
 //import { PaymentModalComponent } from '../../components/payment-modal/payment-modal.component';
 import { DevicesComponent } from './devices/devices.component';
+import { ControlModalComponent } from '../../components/control-modal/control-modal.component';
+import { SiteComponent } from './site/site.component';
+import { SiteModalComponent } from '../../components/site-modal/site-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { DevicesComponent } from './devices/devices.component';
     //PaymentComponent,
     //PaymentModalComponent,
     DevicesComponent,
+    ControlModalComponent,
+    SiteComponent,
+    SiteModalComponent,
   ],
 
   imports: [CommonModule, FontAwesomeModule, SettingsRoutingModule],
