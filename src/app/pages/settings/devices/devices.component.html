@@ -1,19 +1,19 @@
 <!------------------------Device Settings Tables--------------------->
 <h3 class="mb-2 text-lg font-bold text-white">Device Settings</h3>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-  <table class="w-full bg-gray-800 text-lg text-white">
+  <table class="min-w-full bg-gray-800 text-lg text-white">
     <thead class="text-md border-b uppercase text-customColor">
       <tr>
-        <th scope="col" class="px-6 py-3">ID</th>
-        <th scope="col" class="px-6 py-3">DID</th>
-        <th scope="col" class="px-6 py-3">Battery</th>
-        <th scope="col" class="px-6 py-3">Gateway</th>
-        <th scope="col" class="px-6 py-3">Connection Status</th>
-        <th scope="col" class="px-6 py-3">Usage Status</th>
-        <th scope="col" class="px-6 py-3">Remark</th>
-        <th scope="col" class="px-6 py-3">Signal Strength</th>
-        <th scope="col" class="px-6 py-3">Sensor Status</th>
-        <th scope="col" class="px-6 py-3">Control</th>
+        <th scope="col" class="px-2 py-3 md:px-6">ID</th>
+        <th scope="col" class="px-2 py-3 md:px-6">DID</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Battery</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Gateway</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Connection Status</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Usage Status</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Remark</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Signal Strength</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Sensor Status</th>
+        <th scope="col" class="px-2 py-3 md:px-6">Control</th>
       </tr>
     </thead>
     <tbody>
@@ -43,7 +43,7 @@
           ></app-control-modal>
 
           <button
-            class="font-lg ml-2 rounded-full bg-red-500 px-3 py-2 text-center text-xs font-bold text-white"
+            class="font-lg ml-2 rounded-full bg-red-500 px-3 py-2 text-xs font-bold text-white"
           >
             <fa-icon [icon]="faTrash" size="lg"></fa-icon>
           </button>
@@ -74,13 +74,10 @@
   <!-----Pagination------>
   <nav
     class="flex items-center justify-between bg-gray-800 p-4 pt-4"
-    class="flex items-center justify-between p-4 pt-4"
     aria-label="Table navigation"
   >
     <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-      Showing
-      <span class="text-white">1-10</span>
-      of
+      Showing <span class="text-white">1-10</span> of
       <span class="text-white">1000</span>
     </span>
     <ul class="inline-flex h-8 -space-x-px text-sm rtl:space-x-reverse">

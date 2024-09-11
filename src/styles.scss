@@ -20,6 +20,8 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .dark body {
@@ -49,7 +51,7 @@ body {
 }
 
 .btn-custom-2 {
-  @apply relative overflow-hidden rounded-md border-2 border-customColor px-4 py-2 font-bold text-customColor transition-all duration-300 ease-in-out;
+  @apply relative overflow-hidden rounded-md border-2 border-customColor px-2 py-2 text-customColor transition-all duration-300 ease-in-out;
   z-index: 1;
 }
 

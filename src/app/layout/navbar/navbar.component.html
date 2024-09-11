@@ -33,12 +33,20 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Boustead
+        Mahkota Parade
       </button>
       <ul
         class="dropdown-menu dropdown-menu-dark"
         aria-labelledby="userDropdown"
       >
+        <li>
+          <a
+            [routerLink]="['/location']"
+            class="dropdown-item focus:outline-none focus:ring focus:ring-gray-300 active:bg-customColor"
+            >Change Location</a
+          >
+        </li>
+
         <li>
           <a
             (click)="logOut()"

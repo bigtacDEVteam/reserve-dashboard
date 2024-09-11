@@ -32,10 +32,10 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe({
       //2- subscribe to manage server response
       next: (response) => {
-        // console.log('submitLogin successful:', response);
+        console.log('submit Login successful:', response);
       },
       error: (error) => {
-        console.log('submitLogin failed');
+        //console.log('submitLogin failed');
         alert(`Login Unsuccesful : ${error.error.message}`);
       },
     });

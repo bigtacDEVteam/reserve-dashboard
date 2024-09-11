@@ -29,7 +29,7 @@ export class AuthService {
         { name, email, password }
       )
       .pipe(
-        //3-.pipe - transforms data from observable
+        //3-.pipe - transforms data from observable   //manage response such as error message or else, comes from 'post'
         tap((response) => {
           //4-.tap - processing data from pipe
           if (response && response.tokens.access.token) {

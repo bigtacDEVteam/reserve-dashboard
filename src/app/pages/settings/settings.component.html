@@ -1,26 +1,32 @@
-<div class="container mx-auto">
+<div class="container mx-auto overflow-x-hidden">
   <h3 class="pb-4 text-2xl font-bold text-white">Settings</h3>
 
   <div class="container">
     <div class="md:flex">
       <ul
-        class="flex-column space-y text-md mb-4 space-y-4 font-medium text-gray-500 md:mb-0 md:me-4"
+        class="flex-column text-md mb-4 space-y-4 font-medium text-gray-500 md:mb-0 md:me-4"
       >
         <li>
           <a
             routerLink="/settings/device"
-            routerLinkActive="bg-customColor"
             routerLinkActive="bg-customColor text-white"
             class="inline-flex w-full items-center rounded-lg px-4 py-3"
           >
             Device
           </a>
         </li>
-
+        <!-- <li>
+          <a
+            routerLink="/settings/account"
+            routerLinkActive="bg-customColor text-white"
+            class="inline-flex w-full items-center rounded-lg px-4 py-3"
+          >
+            Account
+          </a>
+        </li> -->
         <li>
           <a
             routerLink="/settings/site"
-            routerLinkActive="bg-customColor"
             routerLinkActive="bg-customColor text-white"
             class="inline-flex w-full items-center rounded-lg px-4 py-3"
           >
@@ -30,14 +36,14 @@
         <li>
           <a
             routerLink="/settings/member"
-            routerLinkActive="bg-customColor"
             routerLinkActive="bg-customColor text-white"
             class="inline-flex w-full items-center rounded-lg px-4 py-3"
           >
-            Member
+            Registered Users
           </a>
         </li>
       </ul>
+
       <div class="w-full rounded-lg bg-gray-700 p-6">
         <div class="w-full rounded-lg bg-gray-800 p-6">
           <router-outlet></router-outlet>
