@@ -17,6 +17,6 @@ export class NavbarComponent {
 
   logOut() {
     this.authService.logout();
-    console.log('test logout');
+    //console.log('test logout');
   }
 }

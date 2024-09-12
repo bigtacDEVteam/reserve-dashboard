@@ -1,0 +1,134 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-35"
+>
+  <div class="relative max-h-screen w-full max-w-md">
+    <form
+      class="relative flex max-h-screen flex-col rounded-lg bg-gray-800 shadow"
+    >
+      <div class="flex items-start justify-between rounded-t border-b p-4">
+        <h3 class="text-xl font-semibold text-white">Edit Site</h3>
+        <button
+          (click)="closeModal()"
+          type="button"
+          class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-white"
+        >
+          <fa-icon [icon]="faClose" size="lg"> </fa-icon>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="flex-1 overflow-y-auto p-6">
+        <div class="grid grid-cols-2 gap-6">
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="id"
+              class="mb-2 block text-left text-sm font-medium text-white"
+              >ID</label
+            >
+            <input
+              type="text"
+              name="id"
+              id="id"
+              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
+              placeholder="01"
+              required
+            />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="remark"
+              class="mb-2 block text-left text-sm font-medium text-white"
+              >Remark</label
+            >
+            <input
+              type="text"
+              name="remark"
+              id="remark"
+              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm focus:border-blue-600 focus:ring-blue-600"
+              placeholder="01LG0203"
+              required=""
+            />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="company"
+              class="mb-2 block text-left text-sm font-medium text-white"
+              >Company</label
+            >
+            <input
+              type="text"
+              name="company"
+              id="company"
+              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
+              placeholder="."
+              required=""
+            />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="email"
+              class="mb-2 block text-left text-sm font-medium text-white"
+              >Email</label
+            >
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
+              placeholder="."
+              required=""
+            />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="phone-number"
+              class="mb-2 block text-left text-sm font-medium text-white"
+              >Phone Number</label
+            >
+            <input
+              type="text"
+              name="phone-number"
+              id="phone-number"
+              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
+              placeholder="."
+              required=""
+            />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="payment"
+              class="mb-2 block text-left text-sm font-medium text-white"
+              >Payment</label
+            >
+            <input
+              type="text"
+              name="payment"
+              id="payment"
+              class="mb-4 block w-full cursor-not-allowed rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
+              placeholder="Current Fee (RM 2.20)"
+              required=""
+              aria-label="disabled input"
+              disabled
+            />
+            <input
+              type="text"
+              name="payment"
+              id="payment"
+              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
+              placeholder="New Fee"
+              required=""
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="flex border-t border-gray-200 p-6 text-right">
+        <button
+          type="submit"
+          class="btn-custom-2 px-5 py-2.5 text-center text-sm font-medium text-white"
+        >
+          <span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

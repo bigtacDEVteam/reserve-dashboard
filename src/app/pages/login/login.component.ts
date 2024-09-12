@@ -21,8 +21,23 @@ export class LoginComponent {
   password = '';
   constructor(private authService: AuthService) {}
 
+  // This is original code
+  // submitLogin() {
+  //   this.authService.login(this.email, this.password);
+  //   console.log('test login');
+  // }
+
   submitLogin() {
-    this.authService.login(this.email, this.password);
-    console.log('test login');
+    //1 - calls login function from authService
+    this.authService.login(this.email, this.password).subscribe({
+      //2- subscribe to manage server response
+      next: (response) => {
+        console.log('submit Login successful:', response);
+      },
+      error: (error) => {
+        //console.log('submitLogin failed');
+        alert(`Login Unsuccesful : ${error.error.message}`);
+      },
+    });
   }
 }

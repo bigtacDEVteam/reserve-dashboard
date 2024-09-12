@@ -1,0 +1,109 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-35"
+>
+  <div class="relative max-h-screen w-full max-w-xl">
+    <form
+      class="relative flex max-h-screen flex-col rounded-lg bg-gray-800 shadow"
+    >
+      <div class="flex items-start justify-between rounded-t border-b p-4">
+        <h3 class="text-xl font-semibold text-white">Control Device</h3>
+        <button
+          (click)="closeModal()"
+          type="button"
+          class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-white"
+        >
+          <fa-icon [icon]="faClose" size="lg"></fa-icon>
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="flex-1 overflow-y-auto p-6">
+        <table class="w-full text-white">
+          <tr>
+            <td class="py-2">Control:</td>
+            <td class="py-2 pl-4 text-left">
+              <button class="btn-custom-2 mr-2 px-4 py-2 text-white">
+                <span>Down</span>
+              </button>
+              <button class="btn-custom-2 px-4 py-2 text-white">
+                <span>Up</span>
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="py-2">Ultrasonic Time (s):</td>
+            <td class="py-2 pl-4 text-left">
+              <!-- <button
+                class="rounded bg-gray-600 px-2 py-1 text-white"
+                data-input-counter-decrement
+              >
+                -
+              </button> -->
+              <input
+                id="ultrasonic-time"
+                type="number"
+                class="w-16 rounded bg-gray-700 text-center text-white"
+                data-input-counter
+              />
+              <!-- <button
+                class="rounded bg-gray-600 px-2 py-1 text-white"
+                data-input-counter-increment
+              >
+                +
+              </button> -->
+            </td>
+          </tr>
+
+          <tr>
+            <td class="py-2">Battery Type:</td>
+            <td class="py-2 pl-4 text-left">
+              <select
+                id="battery-type"
+                class="rounded bg-gray-700 px-4 py-2 text-white"
+              >
+                <option value="lithium">Direct-DC</option>
+                <option value="alkaline">IR20-NO. 1-6</option>
+                <option value="ni-mh">Lead-Acid-6</option>
+                <option value="ni-mh">Lithium-7.4</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="py-2">Remote Control:</td>
+            <td class="py-2 pl-4 text-left">
+              <button class="btn-custom-2 x-4 py-2 text-white">
+                <span>Activate</span>
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="py-2">Buzzer:</td>
+            <td class="py-2 pl-4 text-left">
+              <button class="btn-custom-2 mr-2 px-4 py-2 text-white">
+                <span>Open</span>
+              </button>
+              <button class="btn-custom-2 px-4 py-2 text-white">
+                <span>Close</span>
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="py-2">Carlock Reset:</td>
+            <td class="py-2 pl-4 text-left">
+              <button class="btn-custom-2 mr-2 px-4 py-2 text-white">
+                <span>Bluetooth</span>
+              </button>
+              <button class="btn-custom-2 px-4 py-2 text-white">
+                <span>Motherboard</span>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

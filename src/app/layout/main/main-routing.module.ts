@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
-
+import { LocationComponent } from '../../pages/location/location.component';
 const routes: Routes = [
   {
     path: '',
@@ -40,6 +40,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('../../pages/help/help.module').then((m) => m.HelpModule),
       },
+      { path: 'location', component: LocationComponent }, 
     ],
   },
   { path: '**', redirectTo: 'pages/dashboard' },
