@@ -4,9 +4,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LocationComponent } from './pages/location/location.component'; // Import the location component
+import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'register', component: RegisterComponent },
   {
     path: 'location',

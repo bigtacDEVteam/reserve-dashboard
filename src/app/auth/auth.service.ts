@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable, tap, throwError } from 'rxjs';
+import { Observable, tap, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = false;
-  // private authSecretKey = 'Bearer Token';
+  private isAuthenticated = false; //nak track auth status
 
   constructor(
     private cookie: CookieService,
@@ -17,32 +16,34 @@ export class AuthService {
     private http: HttpClient
   ) {}
 
-  // register
-  //1- create register function,
-  //submits 3 values,
-  //use observables to handle asynchronous operation
+  isAuthenticatedUser(): boolean {
+    const accessToken = this.cookie.get('accessToken'); // Check for access token
+    return !!accessToken && this.isAuthenticated; // Return true kalau user has a valid token and tukar ke as authenticated
+  }
+  // Register user
   register(name: string, email: string, password: string): Observable<any> {
-    //2- use POST method to write data
     return this.http
       .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/register',
-        { name, email, password }
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/register', //heroku url
+        { name, email, password } //Request body
       )
       .pipe(
-        //3-.pipe - transforms data from observable   //manage response such as error message or else, comes from 'post'
         tap((response) => {
-          //4-.tap - processing data from pipe
           if (response && response.tokens.access.token) {
-            console.log('registration success', response.user);
+            console.log('Registration successful', response.user);
             this.router.navigate(['/login']);
           } else {
-            console.error('Registration fails :', response.error);
+            console.error('Registration failed:', response.error);
           }
+        }),
+        catchError((error) => {
+          console.error('Registration error:', error);
+          return throwError(() => error);
         })
       );
   }
 
-  // login
+  // Login user
   login(email: string, password: string): Observable<any> {
     return this.http
       .post<any>(
@@ -51,42 +52,156 @@ export class AuthService {
       )
       .pipe(
         tap((response) => {
-          //response is data response from API call from server
           if (response && response.tokens.access.token) {
-            //if access token has value, return true
             console.log('Login successful:', response.user);
-            this.isAuthenticated = true; // Set authentication status
+            this.isAuthenticated = true;
 
             this.cookie.set('userId', response.user.id);
             this.cookie.set('accessToken', response.tokens.access.token);
+            this.cookie.set('refreshToken', response.tokens.refresh.token);
 
-            // // Navigate to /dashboard
             this.router
-              .navigate(['/location']) //
-              .then(() => console.log('Navigation to /location successful'))
+              .navigate(['/location'])
               .catch((err) => console.error('Navigation error:', err));
           } else {
-            console.error('Login failed:', response);
-            console.log(response.status); // NOTE : These wont render, idk why, but its non-breaking
+            console.error('Login failed:', response.error);
           }
+        }),
+        catchError((error) => {
+          console.error('Login error:', error);
+          return throwError(() => error);
         })
       );
   }
 
-  //add logout
-  logout() {
-    this.isAuthenticated = false;
-    this.cookie.delete('userId');
+  // Logout user
+  logout(): Observable<any> {
+    const refreshToken = this.cookie.get('refreshToken');
     this.cookie.delete('accessToken');
-    console.log('Logging out and navigating to login page');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']); //navbar logout
+    console.log('Logged out successfully');
+
+    return this.http
+      .post<any>(
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/logout',
+        { refreshToken }
+      )
+      .pipe(
+        tap(() => {
+          this.cookie.delete('userId');
+          this.cookie.delete('accessToken');
+          this.cookie.delete('refreshToken');
+          this.isAuthenticated = false;
+          console.log('Logout successful, navigating to login page');
+          this.router.navigate(['/login']);
+        }),
+        catchError((error) => {
+          console.error('Logout error:', error);
+          return throwError(() => error);
+        })
+      );
   }
 
-  isAuthenticatedUser(): boolean {
-    if (this.cookie.get('accessToken')) {
-      return true;
-    } else {
-      return false;
-    }
+  // Refresh token
+  refreshToken(): Observable<any> {
+    const refreshToken = this.cookie.get('refreshToken');
+
+    return this.http
+      .post<any>(
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/refresh-tokens',
+        { refreshToken }
+      )
+      .pipe(
+        tap((response) => {
+          if (response && response.access.token) {
+            console.log('Token refreshed:', response);
+            this.cookie.set('accessToken', response.access.token);
+            this.cookie.set('refreshToken', response.refresh.token);
+          }
+        }),
+        catchError((error) => {
+          console.error('Refresh token error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  // Forgot password
+  forgotPassword(email: string): Observable<any> {
+    return this.http
+      .post<any>(
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/forgot-password',
+        { email }
+      )
+      .pipe(
+        tap(() => {
+          console.log('Password reset link sent to:', email);
+          alert('Check your email for the password reset link.');
+        }),
+        catchError((error) => {
+          console.error('Forgot password error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  // Reset password
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    return this.http
+      .post<any>(
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/reset-password',
+        { token, password: newPassword }
+      )
+      .pipe(
+        tap(() => {
+          console.log('Password reset successfully');
+          alert('Password has been reset.');
+          this.router.navigate(['/login']);
+        }),
+        catchError((error) => {
+          console.error('Reset password error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  // Send verification email
+  sendVerificationEmail(): Observable<any> {
+    const userId = this.cookie.get('userId');
+
+    return this.http
+      .post<any>(
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/send-verification-email',
+        { userId }
+      )
+      .pipe(
+        tap(() => {
+          console.log('Verification email sent');
+          alert('A verification email has been sent.');
+        }),
+        catchError((error) => {
+          console.error('Send verification email error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  // Verify email
+  verifyEmail(token: string): Observable<any> {
+    return this.http
+      .post<any>(
+        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/verify-email',
+        { token }
+      )
+      .pipe(
+        tap(() => {
+          console.log('Email verified successfully');
+          alert('Email verified successfully!');
+        }),
+        catchError((error) => {
+          console.error('Verify email error:', error);
+          return throwError(() => error);
+        })
+      );
   }
 }

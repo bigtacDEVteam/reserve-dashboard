@@ -17,6 +17,7 @@ import {
   withFetch,
 } from '@angular/common/http';
 import { LocationComponent } from './pages/location/location.component';
+import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LocationComponent } from './pages/location/location.component';
     LoginComponent,
     RegisterComponent,
     LocationComponent,
+    ForgotPassComponent,
   ],
   imports: [
     BrowserModule,
