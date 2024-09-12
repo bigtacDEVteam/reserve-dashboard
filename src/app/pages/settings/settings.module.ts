@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SettingsComponent } from './settings.component';
 import { MemberComponent } from './member/member.component';
-import { AccountComponent } from './account/account.component';
+//import { AccountComponent } from './account/account.component';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { MemberModalComponent } from '../../components/member-modal/member-modal.component';
 import { AccountModalComponent } from '../../components/account-modal/account-modal.component';
