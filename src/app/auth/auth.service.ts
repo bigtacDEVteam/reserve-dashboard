@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -20,13 +20,21 @@ export class AuthService {
     const accessToken = this.cookie.get('accessToken'); // Check for access token
     return !!accessToken && this.isAuthenticated; // Return true kalau user has a valid token and tukar ke as authenticated
   }
+
   // Register user
   register(name: string, email: string, password: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+
     return this.http
       .post<any>(
         'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/register', //heroku url
-        { name, email, password } //Request body
+        { name, email, password },
+        { headers }
       )
+
       .pipe(
         tap((response) => {
           if (response && response.tokens.access.token) {
@@ -149,8 +157,8 @@ export class AuthService {
   resetPassword(token: string, newPassword: string): Observable<any> {
     return this.http
       .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/reset-password',
-        { token, password: newPassword }
+        `https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/reset-password?token=${token}`,
+        { password: newPassword }
       )
       .pipe(
         tap(() => {
