@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SettingsComponent } from './settings.component';
 import { MemberComponent } from './member/member.component';
-import { AccountComponent } from './account/account.component';
+//import { AccountComponent } from './account/account.component';
 import { DevicesComponent } from './devices/devices.component';
 import { SiteComponent } from './site/site.component';
 
@@ -12,7 +12,7 @@ const routes: Routes = [
     component: SettingsComponent,
     children: [
       { path: 'member', component: MemberComponent },
-      { path: 'account', component: AccountComponent },
+      //{ path: 'account', component: AccountComponent },
       { path: 'device', component: DevicesComponent },
       { path: 'site', component: SiteComponent },
       { path: '', redirectTo: 'device', pathMatch: 'full' },
