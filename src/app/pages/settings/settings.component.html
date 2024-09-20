@@ -24,7 +24,7 @@
             Account
           </a>
         </li> -->
-        <li>
+        <li *ngIf="authService.getUserRole() === 'admin'">
           <a
             routerLink="/settings/site"
             routerLinkActive="bg-customColor text-white"
@@ -33,6 +33,7 @@
             Site
           </a>
         </li>
+
         <li>
           <a
             routerLink="/settings/member"

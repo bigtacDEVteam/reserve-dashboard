@@ -94,14 +94,21 @@
             class="mt-1 w-full rounded border border-gray-600 bg-gray-700 p-2 text-white"
           />
         </div>
-        <button
-          (click)="submitRegister()"
-          type="button"
-          class="w-full rounded-lg bg-customColor px-4 py-2 font-bold text-white"
-        >
-          Register
-        </button>
+        <div class="flex justify-center">
+          <button
+            (click)="submitRegister()"
+            type="button"
+            class="btn-custom-2 px-4 py-2 font-bold text-white"
+          >
+            <span>Register</span>
+          </button>
+        </div>
       </form>
+      <div class="mt-4 text-center">
+        <a [routerLink]="['/login']" class="text-customColor hover:text-white"
+          >Already have an account?</a
+        >
+      </div>
     </div>
   </div>
 </div>

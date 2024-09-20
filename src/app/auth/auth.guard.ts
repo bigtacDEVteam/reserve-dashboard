@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import {
+  CanActivate,
+  Router,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+} from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -8,19 +13,29 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(): boolean {
-    return this.checkAuth();
-  }
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    const userRole = this.authService.getUserRole();
+    const url = state.url;
 
-  private checkAuth(): boolean {
-    if (this.authService.isAuthenticatedUser()) {
-      return true;
-    } else {
-      // Redirect to login page with a query parameter "?"
-      this.router.navigate(['/login'], {
-        queryParams: { redirect: 'unauthorized' },
-      });
+    // Check if the user is authenticated
+    if (!this.authService.isAuthenticatedUser()) {
+      this.router.navigate(['/login']);
       return false;
     }
+
+    // Restrict 'location' and 'site-settings' to admin only
+    if (
+      (url.includes('/location') || url.includes('/site-settings')) &&
+      userRole !== 'admin'
+    ) {
+      this.router.navigate(['/unauthorized']);
+      return false;
+    }
+
+    // Allow access to other routes, like 'dashboard'
+    return true;
   }
 }
