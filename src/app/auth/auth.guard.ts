@@ -20,13 +20,11 @@ export class AuthGuard implements CanActivate {
     const userRole = this.authService.getUserRole();
     const url = state.url;
 
-    // Check if the user is authenticated
     if (!this.authService.isAuthenticatedUser()) {
       this.router.navigate(['/login']);
       return false;
     }
 
-    // Restrict 'location' and 'site-settings' to admin only
     if (
       (url.includes('/location') || url.includes('/site-settings')) &&
       userRole !== 'admin'
@@ -35,7 +33,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-    // Allow access to other routes, like 'dashboard'
+    // Allow access to other routes, 'dashboard'
     return true;
   }
 }

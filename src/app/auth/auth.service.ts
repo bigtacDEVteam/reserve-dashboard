@@ -84,9 +84,9 @@ export class AuthService {
             this.cookie.set('userName', response.user.name);
             // Check user role and redirect accordingly
             if (response.user.role === 'admin') {
-              this.router.navigate(['/location']); // Admin users are redirected to 'location'
+              this.router.navigate(['/location']);
             } else {
-              this.router.navigate(['/dashboard']); // Regular users are redirected to 'dashboard'
+              this.router.navigate(['/dashboard']);
             }
           }
         }),
