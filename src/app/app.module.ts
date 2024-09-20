@@ -19,6 +19,7 @@ import {
 import { LocationComponent } from './pages/location/location.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     LocationComponent,
     ForgotPassComponent,
     ResetPasswordComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 import { SettingsComponent } from './settings.component';
 import { MemberComponent } from './member/member.component';
 //import { AccountComponent } from './account/account.component';
@@ -13,6 +14,7 @@ import { DevicesComponent } from './devices/devices.component';
 import { ControlModalComponent } from '../../components/control-modal/control-modal.component';
 import { SiteComponent } from './site/site.component';
 import { SiteModalComponent } from '../../components/site-modal/site-modal.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,12 @@ import { SiteModalComponent } from '../../components/site-modal/site-modal.compo
     SiteModalComponent,
   ],
 
-  imports: [CommonModule, FontAwesomeModule, SettingsRoutingModule],
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    FormsModule,
+    SettingsRoutingModule,
+  ],
   exports: [
     MemberComponent,
     MemberModalComponent,
@@ -39,5 +46,7 @@ import { SiteModalComponent } from '../../components/site-modal/site-modal.compo
     //PaymentComponent,
     DevicesComponent,
   ],
+
+  providers: [CookieService],
 })
 export class SettingsModule {}

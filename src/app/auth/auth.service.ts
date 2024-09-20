@@ -15,10 +15,23 @@ export class AuthService {
     private router: Router,
     private http: HttpClient
   ) {}
-
+  getUserRole(): string | null {
+    const role = this.cookie.get('userRole');
+    return role ? role : null;
+  }
+  getUserName(): string | null {
+    const userName = this.cookie.get('userName');
+    //console.log('Retrieved userName:', userName);
+    return userName ? userName : 'Guest';
+  }
+  isAdmin(): boolean {
+    const role = this.getUserRole();
+    return role === 'admin';
+  }
   isAuthenticatedUser(): boolean {
     const accessToken = this.cookie.get('accessToken'); // Check for access token
-    return !!accessToken && this.isAuthenticated; // Return true kalau user has a valid token and tukar ke as authenticated
+    return !!accessToken;
+    //return !!accessToken && this.isAuthenticated;
   }
 
   // Register user
@@ -67,12 +80,14 @@ export class AuthService {
             this.cookie.set('userId', response.user.id);
             this.cookie.set('accessToken', response.tokens.access.token);
             this.cookie.set('refreshToken', response.tokens.refresh.token);
-
-            this.router
-              .navigate(['/location'])
-              .catch((err) => console.error('Navigation error:', err));
-          } else {
-            console.error('Login failed:', response.error);
+            this.cookie.set('userRole', response.user.role);
+            this.cookie.set('userName', response.user.name);
+            // Check user role and redirect accordingly
+            if (response.user.role === 'admin') {
+              this.router.navigate(['/location']); // Admin users are redirected to 'location'
+            } else {
+              this.router.navigate(['/dashboard']); // Regular users are redirected to 'dashboard'
+            }
           }
         }),
         catchError((error) => {

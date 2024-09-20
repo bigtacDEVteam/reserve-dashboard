@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 import { LocationComponent } from '../../pages/location/location.component';
+import { AuthGuard } from '../../auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
@@ -40,7 +42,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('../../pages/help/help.module').then((m) => m.HelpModule),
       },
-      { path: 'location', component: LocationComponent }, 
+      { path: 'location', component: LocationComponent },
     ],
   },
   { path: '**', redirectTo: 'pages/dashboard' },

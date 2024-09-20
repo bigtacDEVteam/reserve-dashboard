@@ -5,10 +5,9 @@
     <table class="w-full bg-gray-800 text-lg text-white">
       <thead class="text-md border-b uppercase text-customColor">
         <tr>
-          <th scope="col" class="px-6 py-3">ID</th>
+          <!-- <th scope="col" class="px-6 py-3">ID</th> -->
           <th scope="col" class="px-6 py-3">Remark</th>
           <th scope="col" class="px-6 py-3">Company</th>
-          <th scope="col" class="px-6 py-3">Phone No.</th>
           <th scope="col" class="px-6 py-3">Email</th>
           <th scope="col" class="px-6 py-3">
             Total <br />
@@ -19,22 +18,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b">
-          <td class="px-6 py-4">01</td>
+        <tr *ngFor="let item of results" class="border-b">
+          <!-- <td class="px-6 py-4">{{ item.id }}</td> -->
           <td class="px-6 py-4">01LG0203</td>
-          <td class="px-6 py-4">The Curve</td>
-          <td class="px-6 py-4">012-345678</td>
-          <td class="px-6 py-4">thecurve.gmail.com</td>
-
+          <td class="px-6 py-4">{{ item.name }}</td>
+          <td class="px-6 py-4">{{ item.email }}</td>
           <td class="px-6 py-4">18</td>
-
           <td class="px-6 py-4">RM 2 per hour</td>
-
           <td class="px-6 py-4 text-right">
             <!-- Button to open the modal -->
             <button
               class="font-lg rounded-full bg-customColor px-3 py-2 text-center text-xs font-bold text-white"
-              (click)="openSiteModal()"
+              (click)="openSiteModal(item)"
             >
               <fa-icon [icon]="faPen" size="lg"></fa-icon>
             </button>
@@ -42,10 +37,14 @@
             <!-- Modal -->
             <app-site-modal
               *ngIf="isModalOpen"
+              [item]="selectedSite"
               (close)="closeSiteModal()"
+              (submit)="onSubmit($event)"
             ></app-site-modal>
 
+            <!-- Delete button -->
             <button
+              (click)="deleteUser(item.id)"
               class="font-lg ml-2 rounded-full bg-red-500 px-3 py-2 text-center text-xs font-bold text-white"
             >
               <fa-icon [icon]="faTrash" size="lg"></fa-icon>

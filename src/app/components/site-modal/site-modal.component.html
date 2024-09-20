@@ -3,6 +3,7 @@
 >
   <div class="relative max-h-screen w-full max-w-md">
     <form
+      (ngSubmit)="onSubmit()"
       class="relative flex max-h-screen flex-col rounded-lg bg-gray-800 shadow"
     >
       <div class="flex items-start justify-between rounded-t border-b p-4">
@@ -18,7 +19,7 @@
       <!-- Modal body -->
       <div class="flex-1 overflow-y-auto p-6">
         <div class="grid grid-cols-2 gap-6">
-          <div class="col-span-6 sm:col-span-3">
+          <!-- <div class="col-span-6 sm:col-span-3">
             <label
               for="id"
               class="mb-2 block text-left text-sm font-medium text-white"
@@ -29,10 +30,10 @@
               name="id"
               id="id"
               class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
-              placeholder="01"
+              [(ngModel)]="item.id"
               required
             />
-          </div>
+          </div> -->
           <div class="col-span-6 sm:col-span-3">
             <label
               for="remark"
@@ -59,7 +60,7 @@
               name="company"
               id="company"
               class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
-              placeholder="."
+              [(ngModel)]="item.name"
               required=""
             />
           </div>
@@ -74,25 +75,11 @@
               name="email"
               id="email"
               class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
-              placeholder="."
+              [(ngModel)]="item.email"
               required=""
             />
           </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="phone-number"
-              class="mb-2 block text-left text-sm font-medium text-white"
-              >Phone Number</label
-            >
-            <input
-              type="text"
-              name="phone-number"
-              id="phone-number"
-              class="block w-full rounded-lg border bg-gray-800 p-2.5 text-sm text-white shadow-sm"
-              placeholder="."
-              required=""
-            />
-          </div>
+
           <div class="col-span-6 sm:col-span-3">
             <label
               for="payment"
