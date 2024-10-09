@@ -20,6 +20,7 @@ import { LocationComponent } from './pages/location/location.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { KavassService } from './kavass/kavass.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     HttpClientModule,
     // AuthModule,
   ],
-  providers: [provideHttpClient(withFetch())],
+  providers: [provideHttpClient(withFetch()), KavassService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

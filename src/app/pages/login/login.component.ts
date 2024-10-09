@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 import {
   faGlobe,
@@ -19,7 +20,7 @@ export class LoginComponent {
   backgroundImageUrl: string = 'assets/images/garage.jpg';
   email = '';
   password = '';
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   // This is original code
   // submitLogin() {
@@ -28,7 +29,7 @@ export class LoginComponent {
   // }
 
   submitLogin() {
-    //1 - calls login function from authService
+    this.router.navigate(['/dashboard']);
     this.authService.login(this.email, this.password).subscribe({
       //2- subscribe to manage server response
       next: (response) => {

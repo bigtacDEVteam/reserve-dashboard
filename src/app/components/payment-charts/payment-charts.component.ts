@@ -67,13 +67,13 @@ export class PaymentChartsComponent implements OnInit {
     this.lineChartData = {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       datasets: [
-        {
-          data: [41, 32, 50, 41, 47, 55, 40],
-          label: 'DB/CC Parking',
-          backgroundColor: '#4C9AA0',
-          borderColor: '#4C9AA0',
-          // backgroundColor: '#4C9AA0',
-        },
+        // {
+        //   data: [41, 32, 50, 41, 47, 55, 40],
+        //   label: 'DB/CC Parking',
+        //   backgroundColor: '#4C9AA0',
+        //   borderColor: '#4C9AA0',
+        //   // backgroundColor: '#4C9AA0',
+        // },
         {
           data: [30, 40, 45, 20, 25, 20, 36],
           label: 'Debit/Credit Card',
@@ -81,13 +81,13 @@ export class PaymentChartsComponent implements OnInit {
           borderColor: '#AAD4D7',
           //   backgroundColor: '#4C9AA0',
         },
-        {
-          data: [10, 25, 20, 15, 22, 20, 30],
-          label: 'e-Wallet',
-          backgroundColor: '#306266',
-          borderColor: '#306266',
-          //  backgroundColor: '#4C9AA0',
-        },
+        // {
+        //   data: [10, 25, 20, 15, 22, 20, 30],
+        //   label: 'e-Wallet',
+        //   backgroundColor: '#306266',
+        //   borderColor: '#306266',
+        //   //  backgroundColor: '#4C9AA0',
+        // },
       ],
     };
   }
