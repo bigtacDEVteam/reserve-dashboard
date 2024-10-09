@@ -29,9 +29,9 @@ export class AuthService {
     return role === 'admin';
   }
   isAuthenticatedUser(): boolean {
-    const accessToken = this.cookie.get('accessToken'); // Check for access token
+    // const accessToken = this.cookie.get('accessToken'); // Check for access token
+    const accessToken = true;
     return !!accessToken;
-    //return !!accessToken && this.isAuthenticated;
   }
 
   // Register user
@@ -43,7 +43,7 @@ export class AuthService {
 
     return this.http
       .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/register', //heroku url
+        'http://13.212.34.171:8080/v1/auth/register',
         { name, email, password },
         { headers }
       )
@@ -67,10 +67,7 @@ export class AuthService {
   // Login user
   login(email: string, password: string): Observable<any> {
     return this.http
-      .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/login',
-        { email, password }
-      )
+      .post<any>('http://13.212.34.171:8080/v1/auth/login', { email, password })
       .pipe(
         tap((response) => {
           if (response && response.tokens.access.token) {
@@ -105,10 +102,7 @@ export class AuthService {
     console.log('Logged out successfully');
 
     return this.http
-      .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/logout',
-        { refreshToken }
-      )
+      .post<any>('http://13.212.34.171:8080/v1/auth/logout', { refreshToken })
       .pipe(
         tap(() => {
           this.cookie.delete('userId');
@@ -130,10 +124,9 @@ export class AuthService {
     const refreshToken = this.cookie.get('refreshToken');
 
     return this.http
-      .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/refresh-tokens',
-        { refreshToken }
-      )
+      .post<any>('http://13.212.34.171:8080/v1/auth/refresh-tokens', {
+        refreshToken,
+      })
       .pipe(
         tap((response) => {
           if (response && response.access.token) {
@@ -152,10 +145,7 @@ export class AuthService {
   // Forgot password
   forgotPassword(email: string): Observable<any> {
     return this.http
-      .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/forgot-password',
-        { email }
-      )
+      .post<any>('http://13.212.34.171:8080/v1/auth/forgot-password', { email })
       .pipe(
         tap(() => {
           console.log('Password reset link sent to:', email);
@@ -172,8 +162,10 @@ export class AuthService {
   resetPassword(token: string, newPassword: string): Observable<any> {
     return this.http
       .post<any>(
-        `https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/reset-password?token=${token}`,
-        { password: newPassword }
+        `http://13.212.34.171:8080/v1/auth/reset-password?token=${token}`,
+        {
+          password: newPassword,
+        }
       )
       .pipe(
         tap(() => {
@@ -193,10 +185,9 @@ export class AuthService {
     const userId = this.cookie.get('userId');
 
     return this.http
-      .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/send-verification-email',
-        { userId }
-      )
+      .post<any>('http://13.212.34.171:8080/v1/auth/send-verification-email', {
+        userId,
+      })
       .pipe(
         tap(() => {
           console.log('Verification email sent');
@@ -212,10 +203,7 @@ export class AuthService {
   // Verify email
   verifyEmail(token: string): Observable<any> {
     return this.http
-      .post<any>(
-        'https://reserve-dashboard-07c5d37ce5f3.herokuapp.com/v1/auth/verify-email',
-        { token }
-      )
+      .post<any>('http://13.212.34.171:8080/v1/auth/verify-email', { token })
       .pipe(
         tap(() => {
           console.log('Email verified successfully');

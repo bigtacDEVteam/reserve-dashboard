@@ -7,6 +7,7 @@ import {
   faAddressCard,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons';
+import { KavassService } from '../../kavass/kavass.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -108,14 +109,37 @@ export class DashboardComponent implements OnInit {
     },
   };
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
-
   ngOnInit(): void {
     if (this.isBrowser) {
       this.initializeCharts();
     }
+
+    // Step 1: Get the access token
+    this.kavass.getAccessToken().subscribe({
+      next: (response) => {
+        console.log('Access token retrieved successfully:', response);
+
+        // Call the second API to get parking barrier list
+        this.kavass.getParkingBarrierList(1, 20).subscribe({
+          next: (barrierResponse) => {
+            console.log('Parking barrier list:', barrierResponse.data.content); // Access content inside data
+          },
+          error: (error) => {
+            console.error('Failed to get parking barrier list:', error.message);
+          },
+        });
+      },
+      error: (error) => {
+        console.error('Failed to retrieve access token:', error.message);
+      },
+    });
+  }
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private kavass: KavassService
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
   private initializeCharts(): void {

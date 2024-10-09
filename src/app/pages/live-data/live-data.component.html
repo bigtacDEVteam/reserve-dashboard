@@ -56,6 +56,14 @@
                 <p class="pl-2">Occupied</p>
               </a>
             </li>
+            <li>
+              <a href="#" class="dropdown-item flex items-center">
+                <span
+                  class="ml-2 rounded-full bg-blue-500 p-2 text-sm font-medium text-gray-800"
+                ></span>
+                <p class="pl-2">All Barrier</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -63,13 +71,29 @@
       <div class="container mx-auto my-8">
         <div class="scrollbar flex snap-x overflow-x-auto rounded-md p-4">
           <div
-            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-red-500 p-2"
+            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid p-2"
+            [ngClass]="getBorderColor(barrier)"
+            *ngFor="let barrier of parkingBarrierList; let i = index"
           >
             <img src="assets/images/reserve-parking.png" class="w-40" />
-            <p class="text-center text-white">Bay 1</p>
-            <p class="text-center text-white">Network</p>
+            <p class="text-center text-white">{{ barrier.did }}</p>
+            <p *ngIf="barrier.online !== 1" class="text-center text-white">
+              {{ barrier.online === 2 ? "Offline" : barrier.online }}
+            </p>
+            <p class="text-center text-white">
+              <ng-container [ngSwitch]="barrier.alarm">
+                <span *ngSwitchCase="0">Normal</span>
+                <span *ngSwitchCase="1">Forced Open Barrier</span>
+                <span *ngSwitchCase="2">Forced Close Barrier</span>
+                <span *ngSwitchCase="3">Barrier Block Close</span>
+                <span *ngSwitchCase="4">Barrier Block Close</span>
+                <span *ngSwitchCase="5">Wrong Arm Lift</span>
+                <span *ngSwitchCase="6">Time-limit exceed</span>
+              </ng-container>
+            </p>
           </div>
-          <div
+
+          <!-- <div
             class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-red-500 p-2"
           >
             <img src="assets/images/reserve-parking.png" class="w-40" />
@@ -96,25 +120,7 @@
             <img src="assets/images/reserve-parking.png" class="w-40" />
             <p class="text-center text-white">Bay 5</p>
             <p class="text-center text-white">Alarm Triggered</p>
-          </div>
-          <div
-            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-yellow-500 p-2"
-          >
-            <img src="assets/images/reserve-parking.png" class="w-40" />
-            <p class="text-center text-white">Bay 6</p>
-          </div>
-          <div
-            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-green-500 p-2"
-          >
-            <img src="assets/images/reserve-parking.png" class="w-40" />
-            <p class="text-center text-white">Bay 7</p>
-          </div>
-          <div
-            class="mr-4 flex-none snap-center rounded-lg border-4 border-solid border-green-500 p-2"
-          >
-            <img src="assets/images/reserve-parking.png" class="w-40" />
-            <p class="text-center text-white">Bay 8</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

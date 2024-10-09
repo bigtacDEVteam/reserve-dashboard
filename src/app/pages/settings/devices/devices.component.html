@@ -2,72 +2,85 @@
 <h3 class="mb-2 text-lg font-bold text-white">Device Settings</h3>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
   <table class="min-w-full bg-gray-800 text-lg text-white">
-    <thead class="text-md border-b uppercase text-customColor">
+    <thead class="border-b text-sm uppercase text-customColor">
       <tr>
-        <th scope="col" class="px-2 py-3 md:px-6">ID</th>
-        <th scope="col" class="px-2 py-3 md:px-6">DID</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Battery</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Gateway</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Connection Status</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Usage Status</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Remark</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Signal Strength</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Sensor Status</th>
-        <th scope="col" class="px-2 py-3 md:px-6">Control</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">ID</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">DID</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Battery</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Gateway</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">
+          Connection Status
+        </th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Usage Status</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Remark</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">
+          Signal Strength
+        </th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Alarm Status</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Online Time</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Offline Time</th>
+        <th scope="col" class="px-2 py-3 text-center md:px-6">Control</th>
       </tr>
     </thead>
+
     <tbody>
-      <tr class="border-b">
-        <td class="px-6 py-4">0101</td>
-        <td class="px-6 py-4">63368C30C8EC</td>
-        <td class="px-6 py-4">70</td>
-        <td class="px-6 py-4">North Exit 1</td>
-        <td class="px-6 py-4 text-green-400">Online</td>
-        <td class="px-6 py-4">Down</td>
+      <tr
+        class="text-md border-b"
+        *ngFor="let barrier of parkingBarrierList; let i = index"
+      >
+        <td class="px-6 py-4">{{ i + 1 }}</td>
+        <td class="px-6 py-4">{{ barrier.did }}</td>
+        <td class="px-6 py-4">{{ barrier.electricity }}%</td>
+        <td class="px-6 py-4">{{ barrier.gateway }}</td>
+        <td class="px-6 py-4">
+          <ng-container [ngSwitch]="barrier.online">
+            <span class="text-green-400" *ngSwitchCase="1">Online</span>
+            <span class="text-red-400" *ngSwitchCase="2">Offline</span>
+          </ng-container>
+        </td>
+        <td class="px-6 py-4">
+          <ng-container [ngSwitch]="barrier.locationState">
+            <span *ngSwitchCase="1">Down</span>
+            <span *ngSwitchCase="2">Up</span>
+          </ng-container>
+        </td>
         <td class="px-6 py-4">01LG0203</td>
-        <td class="px-6 py-4">1</td>
-        <td class="px-6 py-4">Normal</td>
+        <td class="px-6 py-4">
+          {{ barrier.signalStrength }}
+        </td>
+        <td class="px-6 py-4">
+          <ng-container [ngSwitch]="barrier.alarm">
+            <span *ngSwitchCase="0">Normal</span>
+            <span *ngSwitchCase="1">Forced Open Barrier</span>
+            <span *ngSwitchCase="2">Forced Close Barrier</span>
+            <span *ngSwitchCase="3">Barrier Block Close</span>
+            <span *ngSwitchCase="4">Barrier Block Close</span>
+            <span *ngSwitchCase="5">Wrong Arm Lift</span>
+            <span *ngSwitchCase="6">Time-limit exceed</span>
+          </ng-container>
+        </td>
+        <td class="px-6 py-4">{{ barrier.onlineTime | date : "short" }}</td>
+        <td class="px-6 py-4">{{ barrier.offlineTime | date : "short" }}</td>
         <td class="px-6 py-4 text-right">
-          <!-- Button to open the modal -->
           <button
-            class="font-lg rounded-full bg-customColor px-3 py-2 text-center text-xs font-bold text-white"
-            (click)="openControlModal()"
+            class="font-lg rounded-full px-3 py-2 text-center text-xs font-bold"
+            [ngClass]="{
+              'bg-customColor text-white': barrier.online === 1,
+              'cursor-not-allowed bg-gray-600 text-gray-400':
+                barrier.online !== 1
+            }"
+            [disabled]="barrier.online !== 1"
+            (click)="barrier.online === 1 && openControlModal(barrier)"
           >
             <fa-icon [icon]="faPen" size="lg"></fa-icon>
           </button>
 
-          <!-- Modal -->
           <app-control-modal
             *ngIf="isModalOpen"
+            [deviceId]="selectedDeviceId"
             (close)="closeControlModal()"
           ></app-control-modal>
-
-          <button
-            class="font-lg ml-2 rounded-full bg-red-500 px-3 py-2 text-xs font-bold text-white"
-          >
-            <fa-icon [icon]="faTrash" size="lg"></fa-icon>
-          </button>
         </td>
-        <!--Button for Admin only
-        <td class="px-6 py-4 text-right">
-          <div class="flex items-center">
-            <span class="mr-2 text-sm font-medium text-white">Up</span>
-
-            <label
-              for="toggle-switch"
-              class="relative inline-flex cursor-pointer items-center"
-            >
-              <input type="checkbox" id="toggle-switch" class="peer sr-only" />
-              <div
-                class="peer h-6 w-11 rounded-full bg-customColor peer-checked:bg-gray-500"
-              ></div>
-              <span
-                class="absolute left-1 top-1 h-4 w-4 rounded-full border border-gray-300 bg-white transition-transform peer-checked:translate-x-full peer-checked:border-white"
-              ></span>
-            </label>
-            <span class="ml-2 text-sm font-medium text-white">Down</span>
-          </div>
-        </td--->
       </tr>
     </tbody>
   </table>

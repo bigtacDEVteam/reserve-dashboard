@@ -1,5 +1,5 @@
 <div
-  class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-35"
+  class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-10"
 >
   <div class="relative max-h-screen w-full max-w-xl">
     <form
@@ -16,16 +16,23 @@
         </button>
       </div>
 
-      <!-- Modal body -->
       <div class="flex-1 overflow-y-auto p-6">
         <table class="w-full text-white">
           <tr>
             <td class="py-2">Control:</td>
             <td class="py-2 pl-4 text-left">
-              <button class="btn-custom-2 mr-2 px-4 py-2 text-white">
+              <button
+                class="btn-custom-2 mr-2 px-4 py-2 text-white"
+                (click)="controlBarrier(1)"
+                [ngClass]="{ 'active-button': activeButton === 1 }"
+              >
                 <span>Down</span>
               </button>
-              <button class="btn-custom-2 px-4 py-2 text-white">
+              <button
+                class="btn-custom-2 px-4 py-2 text-white"
+                (click)="controlBarrier(2)"
+                [ngClass]="{ 'active-button': activeButton === 2 }"
+              >
                 <span>Up</span>
               </button>
             </td>
@@ -33,39 +40,36 @@
 
           <tr>
             <td class="py-2">Ultrasonic Time (s):</td>
-            <td class="py-2 pl-4 text-left">
-              <!-- <button
-                class="rounded bg-gray-600 px-2 py-1 text-white"
-                data-input-counter-decrement
-              >
-                -
-              </button> -->
+            <td class="justify-between py-2 pl-4 text-left">
               <input
                 id="ultrasonic-time"
                 type="number"
                 class="w-16 rounded bg-gray-700 text-center text-white"
                 data-input-counter
+                [(ngModel)]="ultrasonicTime"
+                min="2"
+                max="98"
+                step="2"
               />
-              <!-- <button
-                class="rounded bg-gray-600 px-2 py-1 text-white"
-                data-input-counter-increment
+              <button
+                (click)="setUltrasonicTime()"
+                class="btn-custom-2 x-4 ml-4 px-2 py-1 text-sm text-white"
               >
-                +
-              </button> -->
+                <span>Confirm</span>
+              </button>
             </td>
           </tr>
-
-          <tr>
+          <!-- <tr>
             <td class="py-2">Battery Type:</td>
             <td class="py-2 pl-4 text-left">
               <select
                 id="battery-type"
                 class="rounded bg-gray-700 px-4 py-2 text-white"
               >
-                <option value="lithium">Direct-DC</option>
-                <option value="alkaline">IR20-NO. 1-6</option>
-                <option value="ni-mh">Lead-Acid-6</option>
-                <option value="ni-mh">Lithium-7.4</option>
+                <option value="1">Lead Acid Battery</option>
+                <option value="2">Lithium Battery</option>
+                <option value="3">Direct Power (DC)</option>
+                <option value="4">Dry Battery (IR20-NO. 1-6)</option>
               </select>
             </td>
           </tr>
@@ -101,7 +105,7 @@
                 <span>Motherboard</span>
               </button>
             </td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </form>
