@@ -32,6 +32,9 @@ export class AuthService {
     // const accessToken = this.cookie.get('accessToken'); // Check for access token
     const accessToken = true;
     return !!accessToken;
+    const accessToken = this.cookie.get('accessToken'); // Check for access token
+    return !!accessToken;
+    //return !!accessToken && this.isAuthenticated;
   }
 
   // Register user
@@ -84,6 +87,9 @@ export class AuthService {
               this.router.navigate(['/location']);
             } else {
               this.router.navigate(['/dashboard']);
+              this.router.navigate(['/location']); // Admin users are redirected to 'location'
+            } else {
+              this.router.navigate(['/dashboard']); // Regular users are redirected to 'dashboard'
             }
           }
         }),
